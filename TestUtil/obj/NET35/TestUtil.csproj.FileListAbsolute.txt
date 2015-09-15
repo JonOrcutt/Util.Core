@@ -1,0 +1,13 @@
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\TestUtil.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\DataUtil.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\ExceptionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\FileUtil.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\ReflectionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\SharpSvn.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\Microsoft.WindowsAPICodePack.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\Microsoft.WindowsAPICodePack.xml
+C:\Users\Jon\Desktop\Util.Core\TestUtil\bin\NET35\SharpPlink-Win32.svnExe
+C:\Users\Jon\Desktop\Util.Core\TestUtil\obj\NET35\TestUtil.csprojResolveAssemblyReference.cache
+C:\Users\Jon\Desktop\Util.Core\TestUtil\obj\NET35\TestUtil.dll

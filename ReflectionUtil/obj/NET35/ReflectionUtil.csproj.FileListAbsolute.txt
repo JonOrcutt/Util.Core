@@ -1,0 +1,5 @@
+C:\Users\Jon\Desktop\Util.Core\ReflectionUtil\bin\NET35\ReflectionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\ReflectionUtil\bin\NET35\DataUtil.dll
+C:\Users\Jon\Desktop\Util.Core\ReflectionUtil\bin\NET35\FileUtil.dll
+C:\Users\Jon\Desktop\Util.Core\ReflectionUtil\obj\NET35\ReflectionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\ReflectionUtil\obj\NET35\ReflectionUtil.csprojResolveAssemblyReference.cache

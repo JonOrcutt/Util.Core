@@ -1,0 +1,10 @@
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\x86\Debug\FileUtil.dll
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\x86\Debug\FileUtil.pdb
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\x86\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\x86\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\x86\Debug\SharpSvn.dll
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\x86\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\x86\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\x86\Debug\SharpPlink-Win32.svnExe
+C:\Users\Jon\Desktop\Util.Core\FileUtil\obj\x86\Debug\FileUtil.dll
+C:\Users\Jon\Desktop\Util.Core\FileUtil\obj\x86\Debug\FileUtil.pdb

@@ -1,0 +1,5 @@
+C:\Users\Jon\Desktop\Util.Core\DataUtil\bin\NET35\DataUtil.dll
+C:\Users\Jon\Desktop\Util.Core\DataUtil\bin\NET35\ReflectionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\DataUtil\bin\NET35\FileUtil.dll
+C:\Users\Jon\Desktop\Util.Core\DataUtil\obj\NET35\DataUtil.csprojResolveAssemblyReference.cache
+C:\Users\Jon\Desktop\Util.Core\DataUtil\obj\NET35\DataUtil.dll

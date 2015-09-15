@@ -1,0 +1,14 @@
+C:\Users\y13515\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\bin\Debug\ExceptionUtil.dll
+C:\Users\y13515\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\bin\Debug\ExceptionUtil.pdb
+C:\Users\y13515\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\obj\Debug\ExceptionUtil.dll
+C:\Users\y13515\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\obj\Debug\ExceptionUtil.pdb
+C:\Users\y13515\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\obj\Debug\ExceptionUtil.csprojResolveAssemblyReference.cache
+C:\Users\y13515\Desktop\Test\ExceptionUtil\ExceptionUtil\bin\Debug\ExceptionUtil.dll
+C:\Users\y13515\Desktop\Test\ExceptionUtil\ExceptionUtil\bin\Debug\ExceptionUtil.pdb
+C:\Users\y13515\Desktop\Test\ExceptionUtil\ExceptionUtil\obj\Debug\ExceptionUtil.csprojResolveAssemblyReference.cache
+C:\Users\y13515\Desktop\Test\ExceptionUtil\ExceptionUtil\obj\Debug\ExceptionUtil.dll
+C:\Users\y13515\Desktop\Test\ExceptionUtil\ExceptionUtil\obj\Debug\ExceptionUtil.pdb
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\bin\Debug\ExceptionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\bin\Debug\ExceptionUtil.pdb
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\obj\Debug\ExceptionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\obj\Debug\ExceptionUtil.pdb

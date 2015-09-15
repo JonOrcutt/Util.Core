@@ -1,0 +1,9 @@
+C:\Users\Jon\Desktop\Util.Core\DataUtil\bin\NET_Debug\DataUtil.dll
+C:\Users\Jon\Desktop\Util.Core\DataUtil\bin\NET_Debug\DataUtil.pdb
+C:\Users\Jon\Desktop\Util.Core\DataUtil\bin\NET_Debug\DataUtil.XML
+C:\Users\Jon\Desktop\Util.Core\DataUtil\bin\NET_Debug\ReflectionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\DataUtil\bin\NET_Debug\FileUtil.dll
+C:\Users\Jon\Desktop\Util.Core\DataUtil\bin\NET_Debug\ReflectionUtil.pdb
+C:\Users\Jon\Desktop\Util.Core\DataUtil\obj\NET_Debug\DataUtil.csprojResolveAssemblyReference.cache
+C:\Users\Jon\Desktop\Util.Core\DataUtil\obj\NET_Debug\DataUtil.dll
+C:\Users\Jon\Desktop\Util.Core\DataUtil\obj\NET_Debug\DataUtil.pdb

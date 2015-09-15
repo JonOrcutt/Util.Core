@@ -1,0 +1,3 @@
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\bin\NET35\ExceptionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\obj\NET35\ExceptionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\obj\NET35\ExceptionUtil.csprojResolveAssemblyReference.cache

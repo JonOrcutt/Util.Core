@@ -1,0 +1,5 @@
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\bin\NET_Debug\ExceptionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\bin\NET_Debug\ExceptionUtil.pdb
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\obj\NET_Debug\ExceptionUtil.dll
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\obj\NET_Debug\ExceptionUtil.pdb
+C:\Users\Jon\Desktop\Util.Core\ExceptionUtil\ExceptionUtil\obj\NET_Debug\ExceptionUtil.csprojResolveAssemblyReference.cache

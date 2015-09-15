@@ -1,0 +1,15 @@
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\TestUtilClient.exe
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\TestUtilClient.pdb
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\FileUtil.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\SharpSvn.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\Microsoft.WindowsAPICodePack.dll
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\Microsoft.WindowsAPICodePack.xml
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\SharpPlink-Win32.svnExe
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\obj\Release\TestUtilClient.csprojResolveAssemblyReference.cache
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\obj\Release\TestUtilClient.exe
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\obj\Release\TestUtilClient.pdb
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\TestUtilClient.exe.config
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\FileUtil.pdb
+C:\Users\Jon\Desktop\Util.Core\TestUtilClient\bin\Release\FileUtil.xml

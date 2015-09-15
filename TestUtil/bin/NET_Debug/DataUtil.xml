@@ -1,0 +1,1589 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DataUtil</name>
+    </assembly>
+    <members>
+        <member name="T:DataUtil.DatabaseConnectionInformation">
+            <summary>
+            Base class for database Connection Information
+            </summary>
+        </member>
+        <member name="P:DataUtil.DatabaseConnectionInformation.DatabaseServer">
+            <summary>
+            Name of the database server
+            </summary>
+        </member>
+        <member name="P:DataUtil.DatabaseConnectionInformation.DatabaseName">
+            <summary>
+            Name of the database
+            </summary>
+        </member>
+        <member name="P:DataUtil.DatabaseConnectionInformation.UserID">
+            <summary>
+            User ID
+            </summary>
+        </member>
+        <member name="P:DataUtil.DatabaseConnectionInformation.Password">
+            <summary>
+            User password
+            </summary>
+        </member>
+        <member name="P:DataUtil.DatabaseConnectionInformation.ConnectionString">
+            <summary>
+            Database server connection string
+            </summary>
+        </member>
+        <member name="M:DataUtil.DatabaseConnectionInformation.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:DataUtil.DatabaseConnectionInformation.#ctor(System.String,System.String)">
+            <summary>
+            Default constructor with server and database names
+            </summary>
+            <param name="strServerName">Name of the database server</param>
+            <param name="strDatabaseName">Name of the database</param>
+        </member>
+        <member name="M:DataUtil.DatabaseConnectionInformation.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor including username and password
+            </summary>
+            <param name="strServerName">Name of the database server</param>
+            <param name="strDatabaseName">Name of the database</param>
+            <param name="strUserId">User ID</param>
+            <param name="strPassword">User password</param>
+        </member>
+        <member name="M:DataUtil.DatabaseConnectionInformation.GetConnectionString">
+            <summary>
+            Connection string for the database server connection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DataUtil.DatabaseFunctions">
+            <summary>
+            Base class for providing Database communication functions
+            </summary>
+        </member>
+        <member name="P:DataUtil.DatabaseFunctions.IsConnected">
+            <summary>
+            Flag for whether or not the connection to the database server is open
+            </summary>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.GetConnection">
+            <summary>
+            Retrieve a generic database connection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.TryConnect(System.String@)">
+            <summary>
+            Attempt to connect to the database server if not already connected. Returns success if already connected. Method is useful for cases not knowing if already connected to the database server and reducing validation
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.Connect(System.String@)">
+            <summary>
+            Connect to the database server
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.Disconnect(System.String@)">
+            <summary>
+            Disconnect from the database server
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.GetDataTable(System.String,System.String@,System.Int32)">
+            <summary>
+            Query to be executed
+            </summary>
+            <param name="strQuery">Query string to execute</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="intDefaultTimeout">Optional: Number of seconds before timing out the Sql query</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.ExecuteNonQuery(System.String,System.String@)">
+            <summary>
+            Execute a non-query command
+            </summary>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns>An integer representing the number of rows affected by the query command</returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.ExecuteScalar``1(System.String,System.String@)">
+            <summary>
+            Execute a query and return a single scalar value of a specified type
+            </summary>
+            <typeparam name="T">Type of object to be returned</typeparam>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.GetDataReader(System.String,System.String@)">
+            <summary>
+            Returns an IDataReader
+            </summary>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.BeginTransaction(System.String@,System.String)">
+            <summary>
+            Begin a transaction
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="strTransactionName">Transaction Name</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.CommitTransaction(System.String@,System.String)">
+            <summary>
+            commit a transaction
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="strTransactionName">Transaction Name</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.RollbackTransaction(System.String@,System.String)">
+            <summary>
+            Rollback a transaction
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="strTransactionName">Transaction Name</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseFunctions.ExecuteTransaction(System.String,System.String@)">
+            <summary>
+            Execute/Commit a transaction
+            </summary>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="T:DataUtil.IDatabaseFunctions">
+            <summary>
+            Core Database Functions Object Interface
+            </summary>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.GetConnection">
+            <summary>
+            Retrieve database connection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.TryConnect(System.String@)">
+            <summary>
+            Attempt to connect to the database if not already connected. Returns true if already connected
+            </summary>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.Connect(System.String@)">
+            <summary>
+            Attempt to connect to the database
+            </summary>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.Disconnect(System.String@)">
+            <summary>
+            Attempt to disconnect to the database
+            </summary>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.GetDataTable(System.String,System.String@,System.Int32)">
+            <summary>
+            Retrieve datatable via a sql query string
+            </summary>
+            <param name="strQuery"></param>
+            <param name="strError"></param>
+            <param name="intDefaultTimeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.ExecuteNonQuery(System.String,System.String@)">
+            <summary>
+            Execute a non-query statement
+            </summary>
+            <param name="strQuery"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.ExecuteScalar``1(System.String,System.String@)">
+            <summary>
+            Execute a query returning a scalar value
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="strQuery"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.BeginTransaction(System.String@,System.String)">
+            <summary>
+            Begin a sql transaction
+            </summary>
+            <param name="strError">Any error encountered</param>
+            <param name="strTransactionName">Name of the transaction</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.CommitTransaction(System.String@,System.String)">
+            <summary>
+            Execute a sql transaction
+            </summary>
+            <param name="strError">Any error encountered</param>
+            <param name="strTransactionName">Name of the transaction</param>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.RollbackTransaction(System.String@,System.String)">
+            <summary>
+            Rollback a sql transaction
+            </summary>
+            <param name="strError">Any error encountered</param>
+            <param name="strTransactionName">Name of the transaction</param>
+        </member>
+        <member name="M:DataUtil.IDatabaseFunctions.ExecuteTransaction(System.String,System.String@)">
+            <summary>
+            Execute a sql transaction
+            </summary>
+            <param name="strQuery">Query to execute</param>
+            <param name="strError">Any error encountered</param>
+        </member>
+        <member name="T:DataUtil.DataColumnInformation">
+            <summary>
+            Contains DataColumn information
+            </summary>
+        </member>
+        <member name="P:DataUtil.DataColumnInformation.ColumnName">
+            <summary>
+            Data Column Name
+            </summary>
+        </member>
+        <member name="P:DataUtil.DataColumnInformation.DataType">
+            <summary>
+            Column DataType
+            </summary>
+        </member>
+        <member name="P:DataUtil.DataColumnInformation.FieldLength">
+            <summary>
+            Max Length of the column value
+            </summary>
+        </member>
+        <member name="P:DataUtil.DataColumnInformation.Nullable">
+            <summary>
+            Flag for whether or not this field can have a null value
+            </summary>
+        </member>
+        <member name="P:DataUtil.DataColumnInformation.CreateTableColumnEntry">
+            <summary>
+            Get this columns create table entry string
+            </summary>
+        </member>
+        <member name="M:DataUtil.DataColumnInformation.#ctor(System.String,System.Data.SqlDbType,System.Int32,System.Boolean)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strColumnName">Name of the column</param>
+            <param name="dataType">Column data type</param>
+            <param name="intFieldLength">Maximum length of the field</param>
+            <param name="boolNullable">Whether column value is nullable</param>
+        </member>
+        <member name="T:DataUtil.DataColumnInformationList">
+            <summary>
+            Contains a list of DataColumnInformation objects
+            </summary>
+        </member>
+        <member name="M:DataUtil.DataColumnInformationList.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:DataUtil.DataColumnInformationList.#ctor(System.Data.DataRow)">
+            <summary>
+            DataRow constructor
+            </summary>
+            <param name="dr">DataRow to build column list from</param>
+        </member>
+        <member name="M:DataUtil.DataColumnInformationList.#ctor(System.Data.DataTable)">
+            <summary>
+            DataTable constructor
+            </summary>
+            <param name="dt">DataTable to build column list from</param>
+        </member>
+        <member name="M:DataUtil.DataColumnInformationList.#ctor(System.String,DataUtil.IDatabaseFunctions)">
+            <summary>
+            Database Constructor
+            </summary>
+            <param name="strTableName">Database table name</param>
+            <param name="functions">IDatabaseFunctions object</param>
+        </member>
+        <member name="T:DataUtil.DatabaseInformation">
+            <summary>
+            Static class for retrieving Database related information
+            </summary>
+        </member>
+        <member name="P:DataUtil.DatabaseInformation.DataTypeMappings">
+            <summary>
+            Dictionary of mappings between SqlDbTypes and .NET Types
+            </summary>
+        </member>
+        <member name="M:DataUtil.DatabaseInformation.GetTypeFromSqlType(System.Data.SqlDbType)">
+            <summary>
+            Retrieve a .NET type from a Sql type
+            </summary>
+            <param name="sqltype">Type to convert to Sql type</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseInformation.GetSqlTypeFromType(System.Type)">
+            <summary>
+             Retrieve a Sql type from a .Net type
+            </summary>
+            <param name="type">Type to convert to Sql type</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseInformation.GetSqlTypeFromString(System.String)">
+            <summary>
+            Get SqlDbType from string
+            </summary>
+            <param name="strType">Type to convert to Sql type</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseInformation.CheckDataBaseTableExists(System.String,DataUtil.IDatabaseFunctions,System.String@)">
+            <summary>
+            Check to ensure a database table exists
+            </summary>
+            <param name="strTableName">Name of the table to check for</param>
+            <param name="functions">IDatabaseFunctions object</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseInformation.CheckDataBaseTableHasColumn(System.String,DataUtil.IDatabaseFunctions,System.String,System.String@)">
+            <summary>
+            Check to ensure a database table has a specific column
+            </summary>
+            <param name="strTableName">Name of the table to check</param>
+            <param name="functions">IDatabaseFunctions object</param>
+            <param name="strColumnName">Column name</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DatabaseInformation.CheckDataBaseTableHasColumnList(System.String,System.Collections.Generic.List{System.String},DataUtil.IDatabaseFunctions,System.String@)">
+            <summary>
+            Check to ensure a database table has a specific list of columns
+            </summary>
+            <param name="strTableName">Name of the table to check</param>
+            <param name="listColumnNames">Column name list</param>
+            <param name="functions">IDatabaseFunctions object</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="T:DataUtil.DataTableInformation">
+            <summary>
+            Contains basic information about a Database table / DataTable
+            </summary>
+        </member>
+        <member name="P:DataUtil.DataTableInformation.Columns">
+            <summary>
+            List of data columns in a database table or data table
+            </summary>
+        </member>
+        <member name="F:DataUtil.DataTableInformation.SQL_GET_TABLE_INFO_QUERY">
+            <summary>
+            Constant query for retrieving database table information
+            </summary>
+        </member>
+        <member name="P:DataUtil.DataTableInformation.TableName">
+            <summary>
+            Database table name
+            </summary>
+        </member>
+        <member name="P:DataUtil.DataTableInformation.TableExists">
+            <summary>
+            Whether or not the table exists
+            </summary>
+        </member>
+        <member name="P:DataUtil.DataTableInformation.IsValid">
+            <summary>
+            Whether or not the table is valid or loaded correctly
+            </summary>
+        </member>
+        <member name="M:DataUtil.DataTableInformation.#ctor(System.String,DataUtil.IDatabaseFunctions)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strTableName">Database table name</param>
+            <param name="functions">Database functions object</param>
+        </member>
+        <member name="M:DataUtil.DataTableInformation.#ctor(System.Data.DataTable,System.String)">
+            <summary>
+            Constructor indluding a DataTable and an optional table name
+            </summary>
+            <param name="dt">DataTable to load information from</param>
+            <param name="strTableName">DataTable name</param>
+        </member>
+        <member name="M:DataUtil.DataTableInformation.LoadTableInformationFromDatabase(System.String,DataUtil.IDatabaseFunctions)">
+            <summary>
+            Load table information from the database
+            </summary>
+            <param name="strTableName">Database table name to load information from</param>
+            <param name="functions">IDatabaseFunctions object</param>
+        </member>
+        <member name="M:DataUtil.DataTableInformation.LoadTableInformationFromDataTable(System.Data.DataTable,System.String)">
+            <summary>
+            Load data table information from a datatable
+            </summary>
+            <param name="dt">DataTable to load information from</param>
+            <param name="strTableName">Database table name</param>
+        </member>
+        <member name="M:DataUtil.DataTableInformation.GetCreateTableQuery(System.String@)">
+            <summary>
+            Retrieve a create table query string
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DataTableInformation.GetSqlInsertQuery(System.Data.DataRow,System.String@)">
+            <summary>
+            Populate a Sql insert query
+            </summary>
+            <param name="dr">DataRow to get insert query for</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DataTableInformation.GetSqlInsertQueryList(System.Data.DataTable,System.String@)">
+            <summary>
+            Populate a Sql insert query
+            </summary>
+            <param name="dt">DataTable to get insert query for</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DataTableInformation.GetSybaseInsertQuery(System.Data.DataRow,System.String@)">
+            <summary>
+            Populate a Sybase insert query
+            </summary>
+            <param name="dr">DataRow to get insert query for</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DataTableInformation.GetSybaseInsertQueryList(System.Data.DataTable,System.String@)">
+            <summary>
+            Populate a Sybase insert query
+            </summary>
+            <param name="dt">DataTable to get insert query for</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="T:DataUtil.DataBaseInteropUtilities">
+            <summary>
+            Class for providing Database Interoperability Functionality
+            </summary>
+        </member>
+        <member name="T:DataUtil.DataBaseInteropUtilities.DatabaseServerType">
+            <summary>
+            Database server type
+            </summary>
+        </member>
+        <member name="F:DataUtil.DataBaseInteropUtilities.DatabaseServerType.Unknown">
+            <summary>
+            Database server type is Unknown
+            </summary>
+        </member>
+        <member name="F:DataUtil.DataBaseInteropUtilities.DatabaseServerType.Sybase">
+            <summary>
+            Sybase server type
+            </summary>
+        </member>
+        <member name="F:DataUtil.DataBaseInteropUtilities.DatabaseServerType.Sql">
+            <summary>
+            Sql server type
+            </summary>
+        </member>
+        <member name="T:DataUtil.DataBaseInteropUtilities.InterOpType">
+            <summary>
+            Database interoperability type
+            </summary>
+        </member>
+        <member name="F:DataUtil.DataBaseInteropUtilities.InterOpType.Unknown">
+            <summary>
+            InterOp type is Unknown
+            </summary>
+        </member>
+        <member name="F:DataUtil.DataBaseInteropUtilities.InterOpType.SybaseToSql">
+            <summary>
+            Load data from a Sybase server to a Sql server
+            </summary>
+        </member>
+        <member name="F:DataUtil.DataBaseInteropUtilities.InterOpType.SqlToSybase">
+            <summary>
+            Load data from a Sql sserver to a Sybase server
+            </summary>
+        </member>
+        <member name="F:DataUtil.DataBaseInteropUtilities.DataTableLoadType.Unknown">
+            <summary>
+            DataTable load type is Unknown
+            </summary>
+        </member>
+        <member name="F:DataUtil.DataBaseInteropUtilities.DataTableLoadType.FromDatabase">
+            <summary>
+            Load Data information from database
+            </summary>
+        </member>
+        <member name="F:DataUtil.DataBaseInteropUtilities.DataTableLoadType.FromDataTable">
+            <summary>
+            Load data information from DataTable
+            </summary>
+        </member>
+        <member name="M:DataUtil.DataBaseInteropUtilities.#ctor(DataUtil.DatabaseConnectionInformation,DataUtil.DatabaseConnectionInformation,System.String,System.Boolean)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="connInfoA">Connection information</param>
+            <param name="connInfoB">Connection information</param>
+            <param name="strTableName">Database table name</param>
+            <param name="boolCreateTableIfNotExists">Flag for whether to create the database table if it does not exist</param>
+        </member>
+        <member name="M:DataUtil.DataBaseInteropUtilities.CopyData(System.String,DataUtil.DataBaseInteropUtilities.InterOpType,DataUtil.DataBaseInteropUtilities.DataTableLoadType,System.String@)">
+            <summary>
+            Copy data from one database server type to another
+            </summary>
+            <param name="strQuery"></param>
+            <param name="interOpType"></param>
+            <param name="dataTableLoadType"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.DataBaseInteropUtilities.CheckCreateTable(DataUtil.IDatabaseFunctions,DataUtil.IDatabaseFunctions,DataUtil.DataBaseInteropUtilities.DataTableLoadType,System.String@)">
+            <summary>
+            Check whether or not a table can be created
+            </summary>
+            <param name="functionsFrom"></param>
+            <param name="functionsTo"></param>
+            <param name="createAndLoadType"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DataUtil.SQLConnectionInformation">
+            <summary>
+            Base class Sql Server database Connection Information
+            </summary>
+        </member>
+        <member name="P:DataUtil.SQLConnectionInformation.Authentication">
+            <summary>
+            Sql server authentication type (Windows/Sql)
+            </summary>
+        </member>
+        <member name="T:DataUtil.SQLConnectionInformation.AuthenticationType">
+            <summary>
+            Enumeration for Sql authentication type
+            </summary>
+        </member>
+        <member name="F:DataUtil.SQLConnectionInformation.AuthenticationType.Unknown">
+            <summary>
+            Type of authentication is Unknown
+            </summary>
+        </member>
+        <member name="F:DataUtil.SQLConnectionInformation.AuthenticationType.WindowsAuthentication">
+            <summary>
+            Authenticate as current Windows user
+            </summary>
+        </member>
+        <member name="F:DataUtil.SQLConnectionInformation.AuthenticationType.SQLAuthentication">
+            <summary>
+            Authenticate as a Sql server user
+            </summary>
+        </member>
+        <member name="P:DataUtil.SQLConnectionInformation.ConnectionString">
+            <summary>
+            Database connection string
+            </summary>
+        </member>
+        <member name="M:DataUtil.SQLConnectionInformation.#ctor(System.String)">
+            <summary>
+            Default constructor including connection string
+            </summary>
+            <param name="strConnectionString">Connection string</param>
+        </member>
+        <member name="M:DataUtil.SQLConnectionInformation.#ctor(DataUtil.SQLConnectionInformation.AuthenticationType,System.String,System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="authenticationType">The type of Sql authentication to be used when connecting to the server</param>
+            <param name="strServerName">The name of the server to connect to</param>
+            <param name="strDatabaseName">The name of the database</param>
+        </member>
+        <member name="M:DataUtil.SQLConnectionInformation.#ctor(DataUtil.SQLConnectionInformation.AuthenticationType,System.String,System.String,System.String,System.String)">
+            <summary>
+            Default constructor including username and password
+            </summary>
+            <param name="authenticationType">The type of Sql authentication to be used when connecting to the server</param>
+            <param name="strServerName">The name of the server to connect to</param>
+            <param name="strDatabaseName">The name of the database</param>
+            <param name="strUserId">User ID</param>
+            <param name="strPassword">Password</param>
+        </member>
+        <member name="M:DataUtil.SQLConnectionInformation.GetConnectionString">
+            <summary>
+            Retrieve connection string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DataUtil.SQLFunctions">
+            <summary>
+            Sql Functions Instance
+            </summary>
+        </member>
+        <member name="P:DataUtil.SQLFunctions.m_Connection">
+            <summary>
+            Sql connection
+            </summary>
+        </member>
+        <member name="F:DataUtil.SQLFunctions.m_SQLInfo">
+            <summary>
+            Sql connection information object
+            </summary>
+        </member>
+        <member name="P:DataUtil.SQLFunctions.IsConnected">
+            <summary>
+            Flag for whether or not the connection to the database server is open
+            </summary>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.#ctor(DataUtil.SQLConnectionInformation)">
+            <summary>
+            Default constructor including Sql connection information object
+            </summary>
+            <param name="sqlConnectionInformation">Sql connection information object</param>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.#ctor(DataUtil.SQLConnectionInformation.AuthenticationType,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="authenticationType"></param>
+            <param name="strServerName">Database server name</param>
+            <param name="strDatabaseName">Database name</param>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.#ctor(DataUtil.SQLConnectionInformation.AuthenticationType,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="authenticationType"></param>
+            <param name="strServerName">Database server name</param>
+            <param name="strDatabaseName">Database name</param>
+            <param name="strUserId">Username</param>
+            <param name="strPassword">User password</param>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.GetConnection">
+            <summary>
+            Retrieve a generic database connection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.TryConnect(System.String@)">
+            <summary>
+            Attempt to connect to the database server if not already connected. Returns success if already connected. Method is useful for cases not knowing if already connected to the database server and reducing validation
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.Connect(System.String@)">
+            <summary>
+            Connect to the database server
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.Disconnect(System.String@)">
+            <summary>
+            Disconnect from the database server
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.GetDataTable(System.String,System.String@,System.Int32)">
+            <summary>
+            Query to be executed
+            </summary>
+            <param name="strQuery"></param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="intDefaultTimeout">Optional: Number of seconds before timing out the Sql query</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.ExecuteScalar``1(System.String,System.String@)">
+            <summary>
+            Execute a query and return a single scalar value of a specified type
+            </summary>
+            <typeparam name="T">Type of object to be returned</typeparam>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.ExecuteReader(System.String,System.String@,System.Data.CommandBehavior)">
+            <summary>
+            Create a SqlDataReader from a Sql query
+            </summary>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="behavior">Provides a description of the results of the query and its effect on the database</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.ExecuteReader(System.Data.SqlClient.SqlCommand,System.String@,System.Data.CommandBehavior)">
+            <summary>
+            Create a SqlDataReader from a Sql command
+            </summary>
+            <param name="cmd">The SqlCommand to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="behavior">Provides a description of the results of the query and its effect on the database</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.ExecuteNonQuery(System.String,System.String@)">
+            <summary>
+            Execute a non-query command
+            </summary>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns>An integer representing the number of rows affected by the query command</returns>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.ExecuteNonQuery(System.Data.SqlClient.SqlCommand,System.String@)">
+            <summary>
+            Execute a SqlCommand and return the number of rows affected
+            </summary>
+            <param name="cmd">The SqlCommand to execute</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SQLFunctions.ExecuteTransaction(System.String,System.String@)">
+            <summary>
+            Execute/Commit a transaction
+            </summary>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="T:DataUtil.SybaseConnectionInformation">
+            <summary>
+            Base class Sybase Server database Connection Information
+            </summary>
+        </member>
+        <member name="P:DataUtil.SybaseConnectionInformation.ConnectionString">
+            <summary>
+            Database connection string
+            </summary>
+        </member>
+        <member name="M:DataUtil.SybaseConnectionInformation.#ctor(System.String)">
+            <summary>
+            Default constructor including connection string
+            </summary>
+            <param name="strConnectionString">Connection string</param>
+        </member>
+        <member name="M:DataUtil.SybaseConnectionInformation.#ctor(System.String,System.String)">
+            <summary>
+            Default constructor with server and database names
+            </summary>
+            <param name="strServerName">Name of the database server</param>
+            <param name="strDatabaseName">Name of the database</param>
+        </member>
+        <member name="M:DataUtil.SybaseConnectionInformation.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor including username and password
+            </summary>
+            <param name="strServerName">Name of the database server</param>
+            <param name="strDatabaseName">Name of the database</param>
+            <param name="strUserId">User ID</param>
+            <param name="strPassword">User password</param>
+        </member>
+        <member name="M:DataUtil.SybaseConnectionInformation.GetConnectionString">
+            <summary>
+            Retrieve the database connection string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DataUtil.SybaseFunctions">
+            <summary>
+            Sybase Functions Instance
+            </summary>
+        </member>
+        <member name="P:DataUtil.SybaseFunctions.m_Connection">
+            <summary>
+            Sybase connection
+            </summary>
+        </member>
+        <member name="F:DataUtil.SybaseFunctions.m_SybaseInfo">
+            <summary>
+            Sybase connection information object
+            </summary>
+        </member>
+        <member name="P:DataUtil.SybaseFunctions.IsConnected">
+            <summary>
+            Flag for whether or not the connection to the database server is open
+            </summary>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.#ctor(DataUtil.SybaseConnectionInformation)">
+            <summary>
+            Default constructor including Sybase connection information object
+            </summary>
+            <param name="sybaseConnectionInformation">Sybase connection information object</param>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.#ctor(System.String,System.String)">
+            <summary>
+            Constructor including database server name and database name
+            </summary>
+            <param name="strServerName">Database server name</param>
+            <param name="strDatabaseName">Database name</param>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor including database server name, database name, username, and user password
+            </summary>
+            <param name="strServerName">Database server name</param>
+            <param name="strDatabaseName">Database name</param>
+            <param name="strUserId">Username</param>
+            <param name="strPassword">User password</param>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.GetConnection">
+            <summary>
+            Retrieve a generic database connection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.TryConnect(System.String@)">
+            <summary>
+            Attempt to connect to the database server if not already connected. Returns success if already connected. Method is useful for cases not knowing if already connected to the database server and reducing validation
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.Connect(System.String@)">
+            <summary>
+            Connect to the database server
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.Disconnect(System.String@)">
+            <summary>
+            Disconnect from the database server
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.GetDataTable(System.String,System.String@,System.Int32)">
+            <summary>
+            Query to be executed
+            </summary>
+            <param name="strQuery"></param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="intDefaultTimeout">Optional: Number of seconds before timing out the Sql query</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.ExecuteScalar``1(System.String,System.String@)">
+            <summary>
+            Execute a query and return a single scalar value of a specified type
+            </summary>
+            <typeparam name="T">Type of object to be returned</typeparam>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.ExecuteReader(System.String,System.String@,System.Data.CommandBehavior)">
+            <summary>
+            Create a OdbcDataReader from a Sql query
+            </summary>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="behavior">Provides a description of the results of the query and its effect on the database</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.ExecuteReader(System.Data.Odbc.OdbcCommand,System.String@,System.Data.CommandBehavior)">
+            <summary>
+            Create a OdbcDataReader from a Odbc command
+            </summary>
+            <param name="cmd">Odbc command to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="behavior">Provides a description of the results of the query and its effect on the database</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.ExecuteNonQuery(System.String,System.String@)">
+            <summary>
+            Execute a non-query command
+            </summary>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns>An integer representing the number of rows affected by the query command</returns>
+        </member>
+        <member name="M:DataUtil.SybaseFunctions.ExecuteTransaction(System.String,System.String@)">
+            <summary>
+            Execute/Commit a transaction
+            </summary>
+            <param name="strQuery">Query to be executed</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.IniFileFunctions">
+            <summary>
+            This class provides ini file helper methods
+            </summary>
+        </member>
+        <member name="M:CoreUtil.IniFileFunctions.ReadIniValue(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Read an INI file value
+            </summary>
+            <param name="section"></param>
+            <param name="keyName"></param>
+            <param name="defaultValue"></param>
+            <param name="fileName"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.IniFileFunctions.ReadIniValue(System.String,System.String,System.String)">
+            <summary>
+            Read an INI file value
+            </summary>
+            <param name="filename"></param>
+            <param name="section"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.IniFileFunctions.GetIniParam(System.String,System.String,System.String)">
+            <summary>
+            Get an INI file parameter
+            </summary>
+            <param name="pstrSection"></param>
+            <param name="pstrEntry"></param>
+            <param name="pstrIniFile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.RegexConstants">
+            <summary>
+            This class has defined regular expressions for common searches
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.ALPHA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.ALPHA_NUMERIC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.ALPHA_NUMERIC_SPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.EMAIL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.GUID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.UPPER_CASE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.LOWER_CASE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.NUMERIC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.SOCIAL_SECURITY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.URL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.US_CURRENCY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.US_TELEPHONE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.US_ZIPCODE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.US_ZIPCODE_PLUS_FOUR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.US_ZIPCODE_PLUS_FOUR_OPTIONAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Extensions.DataColumnExtensions">
+            <summary>
+            This class provides extension methods for data columns
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataColumnExtensions.ToList(System.Data.DataColumnCollection)">
+            <summary>
+            Retrieve datatable columns as an enumerable list
+            </summary>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Extensions.DataRowExtensions">
+            <summary>
+            This class provides extension methods for data rows
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataRowExtensions.ToList(System.Data.DataRowCollection)">
+            <summary>
+            Get data row list
+            </summary>
+            <param name="rows"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataRowExtensions.ToStringList(System.Data.DataRow,System.String)">
+            <summary>
+            Get datarow as a list of strings
+            </summary>
+            <param name="dr"></param>
+            <param name="strNullValueReplacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataRowExtensions.IsMutable(System.Data.DataRow)">
+            <summary>
+            Whether or not the datarow is mutable
+            </summary>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Extensions.DataTableExtensions">
+            <summary>
+            This class provides extension methods for data tables
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataTableExtensions.FragmentToRowList(System.Data.DataTable,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Fragment table to a list of rows based on a specific list of column names
+            </summary>
+            <param name="dt">Datatable to fragment</param>
+            <param name="listColumnNamesConformTo">Column names to fragment with</param>
+            <param name="boolDistinct">Whether or not the row list returned should be distinct</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataTableExtensions.FragmentToTable(System.Data.DataTable,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Fragment a datatable from a list of column names
+            </summary>
+            <param name="dt">Datatable to fragment</param>
+            <param name="listColumnNamesConformTo">Column names to fragment with</param>
+            <param name="boolDisctinct">Whether or not the row list returned should be distinct</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataTableExtensions.Rows(System.Data.DataTable)">
+            <summary>
+            Get datatable rows as an enumerable list
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataTableExtensions.IsMutable(System.Data.DataTable,System.Boolean)">
+            <summary>
+            Check whether or not a datatable is mutable
+            </summary>
+            <param name="dt">Datatable to check</param>
+            <param name="boolEnsureNotReadOnly">Ensure table is not readonly</param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Extensions.FormatInformation">
+            <summary>
+            This class provides file formatting information
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Extensions.FormatInformation.FormatType">
+            <summary>
+            Format type enumeration
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.Unknown">
+            <summary>
+            The format type is unknown
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.General">
+            <summary>
+            General format type
+            </summary>            
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.FixedPoint">
+            <summary>
+            Fixed point format type
+            </summary>                      
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.FixedPointGroup">
+            <summary>
+            fixed point group format type
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.PadLeadingZeroes">
+            <summary>
+            Padded leading zeroes format type
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.Currency">
+            <summary>
+            Currency format type
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.Percent">
+            <summary>
+            Percentage format type
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.Hexadecimal">
+            <summary>
+            Hexadecimal format type
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Extensions.DateExtensions">
+            <summary>
+            This class provides extension methods for datetime
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.IsWeekend(System.DateTime)">
+            <summary>
+            Determine whether or not the date is a weekend day
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.IsLeapDay(System.DateTime)">
+            <summary>
+            Whether or not the day is a leap day
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.FirstDayOfMonth(System.DateTime)">
+            <summary>
+            Whether or not the date is the dfirst day of the month
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.LastDayOfMonth(System.DateTime)">
+            <summary>
+            Check date is the last day of the month
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.ToReversedDateTime(System.DateTime)">
+            <summary>
+            Get reversed datetime
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.ToSqlDateTime(System.DateTime)">
+            <summary>
+            Convert date to a sql formatted datetime
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Extensions.IntegerExtensions">
+            <summary>
+            This class provides extension methods for integers
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.IntegerExtensions.IsEven(System.Int32)">
+            <summary>
+            Determine if an integer is an even number
+            </summary>
+            <param name="intValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.IntegerExtensions.IsOdd(System.Int32)">
+            <summary>
+            Determine if an integer is an odd number
+            </summary>
+            <param name="intValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.IntegerExtensions.ToFormatType(System.Int32,CoreUtil.Extensions.FormatInformation.FormatType,System.Int32)">
+            <summary>
+            Format value as string with a provided format type
+            </summary>
+            <param name="intValue"></param>
+            <param name="formatType"></param>
+            <param name="intDigits"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Extensions.StringExtensions">
+            <summary>
+            This class provides extension methods for string values
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsBoolean(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsDate(System.String)">
+            <summary>
+            Check to see if a string can be cast to a date
+            </summary>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsNumeric(System.String,System.Boolean)">
+            <summary>
+            Check string is numeric
+            </summary>
+            <param name="strValue"></param>
+            <param name="boolTrimString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsLetterOrDigit(System.String)">
+            <summary>
+            Check string is a letter or digit
+            </summary>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsEmail(System.String)">
+            <summary>
+            Check string is a valid email address
+            </summary>
+            <param name="strEmailAddress"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsGuid(System.String)">
+            <summary>
+            Check to see if a string is a GUID formatted string
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsSocialSecurityNumber(System.String)">
+            <summary>
+            Check string is a social security number
+            </summary>
+            <param name="strSocialSecurityNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsUSZipCode(System.String)">
+            <summary>
+            Check string is a valid US zipcode
+            </summary>
+            <param name="strZipCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsUSZipCodePlusFour(System.String)">
+            <summary>
+            Check string is a valid US zipcode + 4 numbers
+            </summary>
+            <param name="strZipCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.Contains(System.String,System.String,System.Boolean)">
+            <summary>
+            Check string contains substring
+            </summary>
+            <param name="strContent"></param>
+            <param name="strFind"></param>
+            <param name="boolMatchCase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.ContainsAny(System.String,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.ContainsAll(System.String,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.ContainsNumbers(System.String)">
+            <summary>
+            Check string contains numbers
+            </summary>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.Split(System.String,System.Char,System.Boolean)">
+            <summary>
+            Split string
+            </summary>
+            <param name="strValue"></param>
+            <param name="charDelimiter"></param>
+            <param name="boolTrimValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.ToFormatType(System.String,CoreUtil.Extensions.FormatInformation.FormatType,System.Int32)">
+            <summary>
+            Format string to type
+            </summary>
+            <param name="strValue"></param>
+            <param name="formatType"></param>
+            <param name="intDigits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.Truncate(System.String,System.Int32)">
+            <summary>
+            Truncates the string to a specified length and replace the truncated to a ...
+            </summary>
+            <param name="text">string that will be truncated</param>
+            <param name="maxLength">total length of characters to maintain before the truncate happens</param>
+            <returns>truncated string</returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.Repeat(System.String,System.Int32)">
+            <summary>
+            Repeat a string N times
+            </summary>
+            <param name="input"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Globals">
+            <summary>
+            Global information class
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentType">
+            <summary>
+            Environment to be deployed to
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Globals.ResultType">
+            <summary>
+            A generic result type on a processing expression, transaction, or method
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.ResultType.Unknown">
+            <summary>
+            Result type is unknown
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.ResultType.Success">
+            <summary>
+            Represents a successful expression return flag
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.ResultType.Failure">
+            <summary>
+            Represents a failed expression return flag
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Globals.EnvironmentTypes">
+            <summary>
+            The type of environment to be deployed to 
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.Unknown">
+            <summary>
+            The environment type is unknown
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.DEV">
+            <summary>
+            The development environment
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.DEV1">
+            <summary>
+            Represents the development environment
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.QUAL">
+            <summary>
+            Represents the quality environment
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.QUAL1">
+            <summary>
+            Represents the quality 1 environment
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.UAT">
+            <summary>
+            Represents the user acceptance testing environment
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.PROD">
+            <summary>
+            Represents the production environment
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Information.Information">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.MachineName">
+            <summary>
+            The name of the machine executing the current assembly
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.UserName">
+            <summary>
+            The name of th user executing the current assembly
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.OSVersion">
+            <summary>
+            The operating system version
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.NETFrameworkVersion">
+            <summary>
+            The current .NET framework version on the machine executing the current assembly
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.ProgramName">
+            <summary>
+            The name of the program executing the current assembly
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.ProgramVersion">
+            <summary>
+            The version of the program executing the current assembly
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.ProgramDirectory">
+            <summary>
+            The base directory of the currently executing program
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Log">
+            <summary>
+            Global Logging Class
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.Level">
+            <summary>
+            Level of logging to be logged
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Log.LogLevelType">
+            <summary>
+            The log level type to be used in determining how much detailed information is logged
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogLevelType.Unknown">
+            <summary>
+            The log level is unknown
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogLevelType.Low">
+            <summary>
+            There is a low level of logging
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogLevelType.Medium">
+            <summary>
+            There is a medium level of logging
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogLevelType.High">
+            <summary>
+            There is a high level of logging
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Log.LogType">
+            <summary>
+            Message logging type
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogType.Unknown">
+            <summary>
+            The logging type is unknown
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogType.Console">
+            <summary>
+            Messages are logged to the output console
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogType.LogFile">
+            <summary>
+            Messages are logged to a log file
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogType.Database">
+            <summary>
+            Messages are logged to a database table
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogType.All">
+            <summary>
+            Messages are logged to the output console, a log file, and a database table
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Log.GetLoggerFileName">
+            <summary>
+            Retrieve log4net filename
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Log.Debug(System.String,System.Exception)">
+            <summary>
+            Log a debug message
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="ex">Optional: Exception thrown to log</param>
+        </member>
+        <member name="M:CoreUtil.Log.Info(System.String,System.Exception)">
+            <summary>
+            Log an information message
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="ex">Optional: Exception thrown to log</param>
+        </member>
+        <member name="M:CoreUtil.Log.Warning(System.String,System.Exception)">
+            <summary>
+            Log a warning message
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="ex">Optional: Exception thrown to log</param>
+        </member>
+        <member name="M:CoreUtil.Log.Error(System.String,System.Exception)">
+            <summary>
+            Log an error message
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="ex">Optional: Exception thrown to log</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ReflectionUtil.DatabaseInformation">
+    <Position X="13.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAgAAAAAAAAAAIAAAABAAAAAAAIAA=</HashCode>
+      <FileName>Database\DatabaseInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReflectionUtil.ClassTypeInformation">
+    <Position X="3.5" Y="3" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="ClassTypeMemberInformation" Type="ReflectionUtil.ClassTypeMemberInformation">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-2.37" Y="2.168" Height="0.182" Width="2.211" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="IClassTypeMemberInformation" Type="ReflectionUtil.IClassTypeMemberInformation">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.303" Y="2.016" Height="0.182" Width="2.122" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAUNgAAAAABAAJDAUgAAAQAAIAAAAAEAQAEBkgAAAA=</HashCode>
+      <FileName>Reflection\Class\ClassTypeInformation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClassTypeMemberInformation" />
+      <Property Name="IClassTypeMemberInformation" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ReflectionUtil.ClassTypeInformationList">
+    <Position X="3.5" Y="0.5" Width="2" />
+    <Members>
+      <Property Name="ClassTypeInformation" Hidden="true" />
+    </Members>
+    <AssociationLine Name="ClassTypeInformation1" Type="ReflectionUtil.ClassTypeInformation">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.71" Y="2.25" Height="0.182" Width="0.5" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Reflection\Class\ClassTypeInformationList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClassTypeInformation" />
+      <Property Name="ClassTypeInformation1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ReflectionUtil.ClassTypeMemberInformation" BaseTypeListCollapsed="true">
+    <Position X="6" Y="3" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ABCAAIAACAGRAQAAAJBFMCAQIDEFABAAAQAQCIAAIgA=</HashCode>
+      <FileName>Reflection\Class\ClassTypeMemberInformation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReflectionUtil.AttributeExtensions">
+    <Position X="11.25" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Reflection\Extensions\AttributeExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReflectionUtil.FieldExtensions">
+    <Position X="9" Y="3" Width="2" />
+    <Members>
+      <Method Name="GetFieldValue" Hidden="true" />
+      <Method Name="SetFieldValue" Hidden="true" />
+      <Method Name="SetFieldValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ACAAAAQEBAAAAAgAAAAAAAiAAAAAAAAAAIAAAAABkAA=</HashCode>
+      <FileName>Reflection\Extensions\FieldExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReflectionUtil.MemberExtensions">
+    <Position X="9" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAEAAAIEAA=</HashCode>
+      <FileName>Reflection\Extensions\MemberExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReflectionUtil.MethodExtensions">
+    <Position X="13.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAgAAAAgAAAAAgAAAAAAAAAAEA=</HashCode>
+      <FileName>Reflection\Extensions\MethodExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReflectionUtil.PropertyExtensions">
+    <Position X="11.25" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAEAAAAAAAAAAAAAAAAAACgAAABAAQECAAA=</HashCode>
+      <FileName>Reflection\Extensions\PropertyExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReflectionUtil.ReflectionInformation">
+    <Position X="11.25" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="ReflectionUtil.ReflectionInformation.ClassMemberType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Reflection\Information\ReflectionInformation.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="ReflectionUtil.ReflectionInformation.CollectionType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Reflection\Information\ReflectionInformation.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Reflection\Information\ReflectionInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReflectionUtil.ReflectionFunctions">
+    <Position X="9" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EQBEAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAA=</HashCode>
+      <FileName>Reflection\ReflectionFunctions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ReflectionUtil.IClassTypeMemberInformation">
+    <Position X="0.5" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABCAAIAACAARAQAAAIBAIAAQIBAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Reflection\Class\IClassTypeMemberInformation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,3069 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FileUtil</name>
+    </assembly>
+    <members>
+        <member name="T:FileUtil.Directory.DirectoryObjectListExtensions">
+            <summary>
+            Directory object list extension methods
+            </summary>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectListExtensions.GetFile(System.Collections.Generic.List{FileUtil.Directory.DirectoryObject},System.String)">
+            <summary>
+            Get file in directory by name
+            </summary>
+            <param name="directoryObjectList">Directory list to retrieve files from. Search file name is not case sensitive.</param>
+            <param name="strName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectListExtensions.GetFiles(System.Collections.Generic.List{FileUtil.Directory.DirectoryObject},System.Boolean)">
+            <summary>
+            Retrieves files from a file directory
+            </summary>
+            <param name="directoryObjectList">Directory list to retrieve files from</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectListExtensions.GetFiles(System.Collections.Generic.List{FileUtil.Directory.DirectoryObject},System.String,System.Boolean)">
+            <summary>
+            Retrieves files from a file directory
+            </summary>
+            <param name="directoryObjectList">Directory list to retrieve files from</param>
+            <param name="strFind">Search string to find</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectListExtensions.GetDirectory(System.Collections.Generic.List{FileUtil.Directory.DirectoryObject},System.String)">
+            <summary>
+            Get sub directory in directory by name
+            </summary>
+            <param name="directoryObjectList">Directory list to retrieve files from</param>
+            <param name="strFolderName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Directory.DirectoryObject">
+            <summary>
+            This class represents a filesystem directory 
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.DirectoryObject.AllDirectories">
+            <summary>
+            List of all directories within this directory. This property loads recusrively, so the first instantiation may be expensive
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.DirectoryObject.AllFiles">
+            <summary>
+            List of all files within this directory. This property loads recusrively, so the first instantiation may be expensive
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.DirectoryObject.SubDirectories">
+            <summary>
+            List of sub directories within this directory
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.DirectoryObject.Files">
+            <summary>
+            List of filenames within this directory
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.DirectoryObject.Exists">
+            <summary>
+            Overrides the base method and refreshes the exists property
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.DirectoryObject.Permissions">
+            <summary>
+            Directory permissions
+            </summary>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strFileDirectory">Directory filepath</param>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.LoadProperties">
+            <summary>
+            Load the properties for this file directory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.CheckExists">
+            <summary>
+            Check file directory exists
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.Refresh">
+            <summary>
+            Refresh the contents of this directory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.ArchiveDirectory(FileUtil.Directory.DirectoryObject,System.IO.Compression.CompressionLevel,System.IO.FileMode)">
+            <summary>
+            Archive an entire directory
+            </summary>
+            <param name="destinationDirectoryObject">Destination directory</param>
+            <param name="compressionLevel">File compression level</param>
+            <param name="fileMode">File mode. Default is to create a new archive file or add to an existing archive</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.Delete">
+            <summary>
+            Delete this directory
+            </summary>        
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.DeleteFiles(System.Boolean)">
+            <summary>
+            Deletes files from a directory
+            </summary>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.Rename(System.String)">
+            <summary>
+            Rename this directory
+            </summary>
+            <param name="strNewName">New file directory name</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.Create(System.Security.AccessControl.FileSystemRights,System.Boolean)">
+            <summary>
+            Create a new directory
+            </summary>
+            <param name="fileSystemRights">Type of file system rights to be set on the new directory</param>
+            <param name="boolAllowEveryone">Flag to include Everyone permissions on the new directory</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.Move(FileUtil.Directory.DirectoryObject)">
+            <summary>
+            Moves a file directory to a destination location
+            </summary>
+            <param name="destinationDirectoryObject">Destination for directory to be moved to</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.Copy(FileUtil.Directory.DirectoryObject)">
+            <summary>
+            Copies a file directory to a destination directory
+            </summary>
+            <param name="destinationDirectoryObject">Destination path for directory to be copied to</param> 
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.Copy(FileUtil.Directory.DirectoryObject,FileUtil.Directory.DirectoryObject)">
+            <summary>
+            Copies a file directory recursively to a destination directory
+            </summary>
+            <param name="destinationDirectoryObject">Destination path for directory to be copied to</param> 
+            <param name="directoryToCopy">Directory to be copied</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.CopyFiles(FileUtil.Directory.DirectoryObject,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Copies directory files to a destination directory
+            </summary>
+            <param name="destinationDirectoryObject">Destination for directory files to be copied to</param>
+            <param name="strFind">Search pattern to use retrieving files</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <param name="boolDeleteOriginal">Flag that determines whether to delete the original files</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.CopyFiles(FileUtil.Directory.DirectoryObject,System.Boolean,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Copies directory files to a destination directory
+            </summary>
+            <param name="destinationDirectoryObject">Destination for directory files to be copied to</param>
+            <param name="boolOverWrite">Flag for whether or not to overwrite any existing file in the destination directory</param>
+            <param name="strFind">Search pattern to use retrieving files</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <param name="boolDeleteOriginal">Flag that determines whether to delete the original files</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.File(System.String)">
+            <summary>
+            Get file in directory by name
+            </summary>
+            <param name="strFileShortName">File name to retrieve, not case sensitive. The name may be with or without extension (e.g. "ReadMe.txt" or just "ReadMe")</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.GetFiles(System.Boolean)">
+            <summary>
+            Retrieves files from a file directory
+            </summary>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.GetFiles(System.String,System.Boolean)">
+            <summary>
+            Retrieves files from a file directory
+            </summary>        
+            <param name="strFind">Search string to find</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.GetFilesAsync(FileUtil.Directory.SearchInformation,FileUtil.Directory.SearchInformation.SearchCallback,System.Int32)">
+            <summary>
+            Retrieves files from a file directory. 
+            </summary>
+            <param name="searchInformation">Search information to query the directory with</param>
+            <param name="callback">Callback method to be invoked after each provided timeout period elapses</param>
+            <param name="intCallbackTimeoutSecounds">Number of seconds to wait before invoking the callback method</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.GetFilesAsync(FileUtil.Directory.SearchInformation,FileUtil.Directory.SearchInformation.SearchCallback,FileUtil.File.FileObjectList@,FileUtil.Directory.DirectoryObjectList@,System.DateTime@,System.Int32)">
+            <summary>
+            Retrieves files from a file directory. This method is recursive and requires a helper method to ensure proper encapsulation
+            </summary>
+            <param name="searchInformation">Search information to query the directory with</param>
+            <param name="callback">Callback method to be invoked after each provided timeout period elapses</param>
+            <param name="fileObjectList">Number of seconds to wait before invoking the callback method</param>
+            <param name="directoriesSearched">The directories that have been searched</param>
+            <param name="intCallbackTimeoutSecounds">Number of seconds to wait before invoking the callback method</param>
+            <param name="lastDate">Last time the callback was invoked</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.Async_NEW(FileUtil.Directory.SearchInformation,FileUtil.Directory.SearchInformation.SearchCallback,FileUtil.File.FileObjectList@,FileUtil.Directory.DirectoryObjectList@,System.DateTime@,System.Int32)">
+            <summary>
+            Retrieves files from a file directory. This method is recursive and requires a helper method to ensure proper encapsulation
+            </summary>
+            <param name="searchInformation">Search information to query the directory with</param>
+            <param name="callback">Callback method to be invoked after each provided timeout period elapses</param>
+            <param name="fileObjectList">Number of seconds to wait before invoking the callback method</param>
+            <param name="directoriesSearched">The directories that have been searched</param>
+            <param name="intCallbackTimeoutSecounds">Number of seconds to wait before invoking the callback method</param>
+            <param name="lastDate">Last time the callback was invoked</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.SubDirectory(System.String)">
+            <summary>
+            Retrieves a list of sub-directory paths from a file directory
+            </summary>        
+            <param name="strFolderName">Folder name to retrieve</param>        
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.GetSubDirectories(System.Boolean)">
+            <summary>
+            Retrieves a list of sub-directory paths from a file directory
+            </summary>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObject.GetSubDirectories(System.String,System.Boolean)">
+            <summary>
+            Retrieves a list of sub-directory paths from a file directory
+            </summary>
+            <param name="strFind">Search string to find</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Directory.DirectoryObjectList">
+            <summary>
+            This class represents a list of DirectoryObjects
+            </summary>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectList.#ctor">
+            <summary>
+            Default constructor
+            </summary>        
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectList.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="listFileDirectories"></param>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectList.#ctor(System.Collections.Generic.List{FileUtil.Directory.DirectoryObject})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="listFileDirectories"></param>
+        </member>
+        <member name="P:FileUtil.Directory.DirectoryObjectList.AllFiles">
+            <summary>
+            All files from every directory in the list - top-level only, non-recursive. Note: this method can be very expensive in certain large directory structures as it is fully recursive.
+            </summary>
+        </member>
+        <member name="T:FileUtil.Directory.DirectoryObjectExtensions">
+            <summary>
+            Directory Object Extension Methods
+            </summary>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectExtensions.GetFilesLocked(FileUtil.Directory.DirectoryObject,System.Boolean,System.Boolean)">
+            <summary>
+            Retrieves files that are locked in a file directory
+            </summary>
+            <param name="directoryObject">Directory to retrive locked files for</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <param name="boolIncludeCurrentProcess"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectExtensions.GetFileContentAsString(FileUtil.Directory.DirectoryObject,System.Boolean)">
+            <summary>
+            Retrieves all file content as a string from a directory
+            </summary>
+            <param name="directoryObject">Directory to retrieve content from</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectExtensions.GetFileContentAsString(FileUtil.Directory.DirectoryObject,System.String,System.Boolean)">
+            <summary>
+            Retrieves all file content as a string from a directory
+            </summary>
+            <param name="directoryObject">Directory to retrieve content from</param>
+            <param name="strFind">Search string to find</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectExtensions.GetFileContentAsLineList(FileUtil.Directory.DirectoryObject,System.String,System.Boolean)">
+            <summary>
+            Retrieves all file content as a line list from a directory
+            </summary>
+            <param name="directoryObject">Directory to retrieve content from</param>
+            <param name="strFind">Search string to find</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectExtensions.GetFileContentAsLineList(FileUtil.Directory.DirectoryObject,System.Boolean)">
+            <summary>
+            Retrieves all file content as a line list from a directory
+            </summary>
+            <param name="directoryObject">Directory to retrieve content from</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectExtensions.GetSize(FileUtil.Directory.DirectoryObject,FileUtil.Information.FileInformation.FileSizeType,System.Boolean)">
+            <summary>
+            Retrieves size information of a directory
+            </summary>
+            <param name="directoryObject">Directory to retrieve size information from</param>
+            <param name="fileSizeType">Type of file size to be retrieved</param>
+            <param name="boolRecurse">Flag that determines whether files are retrieved recursively including files from sub-directories</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Directory.DirectoryObjectExtensions.SetPermissions(FileUtil.Directory.DirectoryObject,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AccessControlType,System.String,System.Boolean)">
+            <summary>
+            Sets permissions on a file directory
+            </summary>
+            <param name="directoryObject">Directory to set permissions for</param>
+            <param name="fileRights">Type of directory file rights to set</param>
+            <param name="accessControlType">Type of access control to set</param>        
+            <param name="strSpecificUserName">Optional: Specific username to set permissions for</param>
+            <param name="boolAllowEveryOne">Optional: Flag to determine whether or not to set permissions for all users</param>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Directory.IDirectorySecurity">
+            <summary>
+            This class contains file directory security information for a DirectoryObject instance
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.IDirectorySecurity.CanAccess">
+            <summary>
+            Whether or not the current executing user has access privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Directory.IDirectorySecurity.CanCreateFile">
+            <summary>
+            Whether or not the current executing user can create files in this directory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Directory.IDirectorySecurity.CanCreateDirectory">
+            <summary>
+            Whether or not the current executing user can create directories in this directory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Directory.SearchInformation">
+            <summary>
+            This class provides file system search information for use in enumerating system files
+            </summary>
+        </member>
+        <member name="T:FileUtil.Directory.SearchInformation.SearchCallback">
+            <summary>
+            Delegate for callback invocation during long running file searches
+            </summary>
+            <param name="fileObjects"></param>
+            <param name="directoriesSearched"></param>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.Recurse">
+            <summary>
+             Whether or not to search files recursively (search all subfolders)
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.MatchCase">
+            <summary>
+             Whether or not the search string is case-sensitive
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.SearchPattern">
+            <summary>
+            Search pattern to use to find files containing the search pattern
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.DateSearchType">
+            <summary>
+            The type of file date search to be conducted
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.MinimumDate">
+            <summary>
+            The minimum datetime of the file
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.MaximumDate">
+            <summary>
+            The minimum datetime of the file
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.UseDateInformation">
+            <summary>
+            Whether or not to use file date parameters when searching for files
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.SizeSearchType">
+            <summary>
+            The type of file size search to be conducted
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.MinimumSize">
+            <summary>
+            The minimum size file size
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.MaximumSize">
+            <summary>
+            The maximum size file size
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.UseSizeInformation">
+            <summary>
+            Whether or not to use file size parameters when searching for files
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.DateType">
+            <summary>
+            The date information type to search
+            </summary>
+        </member>
+        <member name="P:FileUtil.Directory.SearchInformation.SizeType">
+            <summary>
+            The file size type to search
+            </summary>
+        </member>
+        <member name="M:FileUtil.Directory.SearchInformation.#ctor(System.Boolean)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="boolRecurse"></param>
+        </member>
+        <member name="M:FileUtil.Directory.SearchInformation.#ctor(System.Boolean,System.String)">
+            <summary>
+            Constructor predicated upon a search pattern
+            </summary>
+            <param name="boolRecurse">Whether or not to retrieve files recursively</param>
+            <param name="strSearchPattern">Search pattern to use to find file system objects</param>
+        </member>
+        <member name="M:FileUtil.Directory.SearchInformation.#ctor(System.Boolean,System.String,System.Boolean)">
+            <summary>
+            Constructor predicated upon a search pattern with case sensitivity
+            </summary>
+            <param name="boolRecurse">Whether or not to retrieve files recursively</param>
+            <param name="strSearchPattern">Search pattern to use to find file system objects</param>
+            <param name="boolMatchCase">Whether or not the search pattern is case sensitive</param>
+        </member>
+        <member name="M:FileUtil.Directory.SearchInformation.#ctor(System.Boolean,System.String,System.Boolean,FileUtil.Information.FileInformation.FileSizeType,System.Decimal,System.Decimal)">
+            <summary>
+            Constructor predicated upon file size
+            </summary>
+            <param name="boolRecurse">Whether or not to retrieve files recursively</param>
+            <param name="strSearchPattern">Search pattern to use to find file system objects</param>
+            <param name="boolMatchCase">Whether or not the search pattern is case sensitive</param>
+            <param name="sizeType">The size type to query file system objects for</param>
+            <param name="decMinimumSize">The minimum size of the file system object</param>
+            <param name="decMaximumSize">The maximum size of the file system object</param>
+        </member>
+        <member name="M:FileUtil.Directory.SearchInformation.#ctor(System.Boolean,System.String,System.Boolean,FileUtil.Information.FileInformation.FileDatePropertyType,System.DateTime,System.DateTime)">
+            <summary>
+            Constructor predicated upon file date information
+            </summary>
+            <param name="boolRecurse">Whether or not to retrieve files recursively</param>
+            <param name="strSearchPattern">Search pattern to use to find file system objects</param>
+            <param name="boolMatchCase">Whether or not the search pattern is case sensitive</param>
+            <param name="dateType">The date type to query file system objects for</param>
+            <param name="dtMinimumDate">The minimum date of the file system object</param>
+            <param name="dtMaximumDate">The maximum date of the file system object</param>
+        </member>
+        <member name="M:FileUtil.Directory.SearchInformation.#ctor(System.Boolean,System.String,System.Boolean,FileUtil.Information.FileInformation.FileDatePropertyType,System.DateTime,System.DateTime,FileUtil.Information.FileInformation.FileSizeType,System.Decimal,System.Decimal)">
+            <summary>
+            Constructor with constraints for recursion, search parameters, date information, and size information
+            </summary>
+            <param name="boolRecurse">Whether or not to retrieve files recursively</param>
+            <param name="strSearchPattern">Search pattern to use to find file system objects</param>
+            <param name="boolMatchCase">Whether or not the search pattern is case sensitive</param>
+            <param name="dateType">The date type to query file system objects for</param>
+            <param name="dtMinimumDate">The minimum date of the file system object</param>
+            <param name="dtMaximumDate">The maximum date of the file system object</param>
+            <param name="sizeType">The size type to query file system objects for</param>
+            <param name="decMinimumSize">The minimum size of the file system object</param>
+            <param name="decMaximumSize">The maximum size of the file system object</param>
+        </member>
+        <member name="M:FileUtil.Directory.SearchInformation.#ctor(System.Boolean,FileUtil.Information.FileInformation.FileSizeType,System.Decimal,System.Decimal)">
+            <summary>
+            Constructor predicated upon file size information
+            </summary>
+            <param name="boolRecurse">Whether or not to retrieve files recursively</param>
+            <param name="sizeType">The size type to query file system objects for</param>
+            <param name="decMinimumSize">The minimum size of the file system object</param>
+            <param name="decMaximumSize">The maximum size of the file system object</param>
+        </member>
+        <member name="M:FileUtil.Directory.SearchInformation.#ctor(System.Boolean,FileUtil.Information.FileInformation.FileDatePropertyType,System.DateTime,System.DateTime)">
+            <summary>
+            Constructor predicated upon file date information
+            </summary>
+            <param name="boolRecurse">Whether or not to retrieve files recursively</param>
+            <param name="dateType">The date type to query file system objects for</param>
+            <param name="dtMinimumDate">The minimum date of the file system object</param>
+            <param name="dtMaximumDate">The maximum date of the file system object</param>
+        </member>
+        <member name="M:FileUtil.Directory.SearchInformation.LoadSearchInformation">
+            <summary>
+            Load search configuration information
+            </summary>
+        </member>
+        <member name="M:FileUtil.Directory.SearchInformation.GetSearchFilesFiltered(FileUtil.File.FileObjectList)">
+            <summary>
+            Internal method to filter files sby search criteria
+            </summary>
+            <param name="fileObjectList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Foundation.DirectorySecurity">
+            <summary>
+            This class contains file system security information for a FileSystemObjectBase instance
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.DirectorySecurity.m_FileSystemObject">
+            <summary>
+            Copy of the file system directory for refreshing permissions
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.DirectorySecurity.CanAccess">
+            <summary>
+            Whether or not the current executing user has access privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.DirectorySecurity.CanCreateFile">
+            <summary>
+            Whether or not the current executing user can create files in this directory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.DirectorySecurity.CanCreateDirectory">
+            <summary>
+            Whether or not the current executing user can create directories in this directory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Foundation.DirectorySecurity.#ctor(FileUtil.Directory.DirectoryObject)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="directoryObject">File system directory to retrieve security information for</param>
+        </member>
+        <member name="M:FileUtil.Foundation.DirectorySecurity.LoadPermissions">
+            <summary>
+            Load the permissions for this directory
+            </summary>
+        </member>
+        <member name="M:FileUtil.Foundation.DirectorySecurity.Refresh">
+            <summary>
+            Refresh the security privledges for the file system object
+            </summary>
+        </member>
+        <member name="T:FileUtil.Foundation.IFileInformation">
+            <summary>
+            This interface contains attribute properties for file system objects
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileInformation.Attributes">
+            <summary>
+            The attributes the file has
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileInformation.CreationDate">
+            <summary>
+            The date that the file was created
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileInformation.LastAccessedDate">
+            <summary>
+            The date that the file was last accessed
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileInformation.LastWriteDate">
+            <summary>
+            The date that the file was last written to
+            </summary>
+        </member>
+        <member name="T:FileUtil.Foundation.FileSizeInformation">
+            <summary>
+            This class holds file system object size information
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSizeInformation.Bytes">
+            <summary>
+            The size of the file in Bytes
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSizeInformation.KiloBytes">
+            <summary>
+            The size of the file in KiloBytes
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSizeInformation.MegaBytes">
+            <summary>
+            The size of the file in MegaBytes
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSizeInformation.GigaBytes">
+            <summary>
+            The size of the file in GigaBytes
+            </summary>
+        </member>
+        <member name="T:FileUtil.Foundation.FileSystemObject">
+            <summary>
+            Base class for a file system object
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.FilePath">
+            <summary>
+            The fully qualified filepath
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.Name">
+            <summary>
+            The short name of the file system object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.ParentDirectory">
+            <summary>
+            The parent directory of this directory
+            </summary>
+            <returns>The parent directory of the file system object</returns>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.Permissions">
+            <summary>
+            The user permissions for the current executing user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.Size">
+            <summary>
+            Information about the size of the file system object
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.Attributes">
+            <summary>
+            The attributes the file has
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.CreationDate">
+            <summary>
+            The date that the file was created
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.LastAccessedDate">
+            <summary>
+            The date that the file was last accessed
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.LastWriteDate">
+            <summary>
+            The date that the file was last written to
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.Exists">
+            <summary>
+            Flag indicating whether or not the file exists in the file system
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.IsDirty">
+            <summary>
+            Whether or not this objects properties have been modified and its property information needs to be refreshed
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemObject.IsReadOnly">
+            <summary>
+            Returns whether this file object is read only
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemObject.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strPath">File path of the system file or directory</param>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemObject.LoadProperties">
+            <summary>
+            Load the properties for this file object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemObject.Refresh">
+            <summary>
+            Refresh the properties of this file
+            </summary>        
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemObject.Delete">
+            <summary>
+            Delete this file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemObject.Rename(System.String)">
+            <summary>
+            Rename this file
+            </summary>
+            <param name="strNewName">New filename</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemObject.Move(FileUtil.Directory.DirectoryObject)">
+            <summary>
+            Refresh the properties of this file
+            </summary>        
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Foundation.IFileSystemObject">
+            <summary>
+            This interface the core file system object properties and methods
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSystemObject.Name">
+            <summary>
+            The short name of the file system object without the file extension
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSystemObject.FilePath">
+            <summary>
+            The fully qualified path of the file system object
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSystemObject.ParentDirectory">
+            <summary>
+            The parent directory of this directory
+            </summary>
+            <returns>The parent directory of the file system object</returns>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSystemObject.Exists">
+            <summary>
+            Flag indicating whether or not the file exists in the file system
+            </summary>
+        </member>
+        <member name="M:FileUtil.Foundation.IFileSystemObject.Refresh">
+            <summary>
+            Refresh the properties of this file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Foundation.IFileSizeInformation">
+            <summary>
+            This interface contains size properties for file system objects
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSizeInformation.Bytes">
+            <summary>
+            The size of the file in Bytes
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSizeInformation.KiloBytes">
+            <summary>
+            The size of the file in KiloBytes
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSizeInformation.MegaBytes">
+            <summary>
+            The size of the file in MegaBytes
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSizeInformation.GigaBytes">
+            <summary>
+            The size of the file in GigaBytes
+            </summary>
+        </member>
+        <member name="T:FileUtil.Foundation.FileSystemSecurity">
+            <summary>
+            This class contains file system security information for a FileSystemObjectBase instance
+            </summary>    
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemSecurity.m_FileSystemObject">
+            <summary>
+            Copy of the file system object for refreshing permissions
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemSecurity.CanRead">
+            <summary>
+            Whether or not the current executing user has read privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemSecurity.CanWrite">
+            <summary>
+            Whether or not the current executing user has write privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemSecurity.CanDelete">
+            <summary>
+            Whether or not the current executing user has delete privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemSecurity.CanModify">
+            <summary>
+            Whether or not the current executing user has modify privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.FileSystemSecurity.CanExecute">
+            <summary>
+            Whether or not the current executing user has execute privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemSecurity.#ctor(FileUtil.Foundation.FileSystemObject)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="fileObject"></param>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemSecurity.LoadPermissions">
+            <summary>
+            Load the permissions for this file system object
+            </summary>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemSecurity.LoadRulePermissions(System.Security.AccessControl.FileSystemAccessRule)">
+            <summary>
+            Load file access rule permissions
+            </summary>
+            <param name="rule"></param>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemSecurity.CheckPermission(System.Security.Permissions.FileIOPermissionAccess)">
+            <summary>
+            Checks permissions of a file system object
+            </summary>
+            <param name="accessType">Type of directory access to check permissions for</param>       
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemSecurity.IsInSystemRole(System.String,System.Security.Principal.WindowsIdentity)">
+            <summary>
+            Determine whether or not an account is in a system role
+            </summary>
+            <param name="strAccountName">Account name to check</param>
+            <param name="identity">Windows identity to check against</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Foundation.FileSystemSecurity.Refresh">
+            <summary>
+            Refresh the security priveldges for the file system object
+            </summary>
+        </member>
+        <member name="T:FileUtil.Foundation.IFileSystemSecurity">
+            <summary>
+            This interface contains the must implement properties for file system security
+            </summary>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSystemSecurity.CanRead">
+            <summary>
+            Whether or not the current executing user has read privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSystemSecurity.CanWrite">
+            <summary>
+            Whether or not the current executing user has write privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSystemSecurity.CanDelete">
+            <summary>
+            Whether or not the current executing user has delete privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSystemSecurity.CanModify">
+            <summary>
+            Whether or not the current executing user has modify privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.Foundation.IFileSystemSecurity.CanExecute">
+            <summary>
+            Whether or not the current executing user has execute privledges
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Foundation.IFileSystemSecurity.Refresh">
+            <summary>
+            Refresh the security priveldges for the file system object
+            </summary>
+        </member>
+        <member name="T:FileUtil.File.IFileObject">
+            <summary>
+            File object interface
+            </summary>
+        </member>
+        <member name="P:FileUtil.File.IFileObject.FullName">
+            <summary>
+            The short name of the file system object including the file extension
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.File.IFileObject.Extension">
+            <summary>
+            The type of extension the file has
+            </summary>
+        </member>
+        <member name="P:FileUtil.File.IFileObject.Content">
+            <summary>
+            The contents of the file
+            </summary>
+        </member>
+        <member name="T:FileUtil.File.FileContentExtensions">
+            <summary>
+            File content extensions
+            </summary>
+        </member>
+        <member name="M:FileUtil.File.FileContentExtensions.GetContentAsString(FileUtil.File.FileContent)">
+            <summary>
+            Retrieve file content as a string
+            </summary>
+            <param name="fileContent">File content to retrieve</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileContentExtensions.GetContentAsLineList(FileUtil.File.FileContent)">
+            <summary>
+            Retrieve content from a file as a line list
+            </summary>
+            <param name="fileContent">File content to retrieve</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileContentExtensions.GetContentAsMemoryStream(FileUtil.File.FileContent)">
+            <summary>
+            Retrieve content from a file as a MemoryStream
+            </summary>
+            <param name="fileContent">File content to retrieve</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileContentExtensions.GetDelimitedLineList(FileUtil.File.FileContent,System.String,System.String@,System.Boolean)">
+            <summary>
+            Retrieve a list of lines from a file in a delimited format
+            </summary>
+            <param name="fileContent">File content</param>
+            <param name="strDelimiter">Delimiter string</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="boolSkipFirstLineHeaders">Optional: Skip the first line because it represents the file header</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileContentExtensions.GetFixedWidthLineList(FileUtil.File.FileContent,System.Int32[],System.String@,System.Boolean)">
+            <summary>
+            Retrieve a list of lines from a file in a fixed width format
+            </summary>
+            <param name="fileContent">File content</param>
+            <param name="listFieldWidths">A list of field widths</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="boolSkipFirstLineHeaders">Optional: Skip the first line because it represents the file header</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileContentExtensions.Deserialize``1(FileUtil.File.FileContent)">
+            <summary>
+            Deserializes the specified serialized data.
+            </summary>
+            <param name="fileContent">The serialized data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.File.FileObjectExtensions">
+            <summary>
+            File Object Extension Methods
+            </summary>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.CheckIsLocked(FileUtil.File.FileObject,System.Boolean)">
+            <summary>
+            Check to see if a file is locked
+            </summary>
+            <param name="fileObject">File to check is locked</param>        
+            <param name="boolIncludeCurrentProcess"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.CheckCanOpen(FileUtil.File.FileObject)">
+            <summary>
+            Check to see if a file can be opened
+            </summary>
+            <param name="fileObject">Filename to check if it can be opened</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.GetAttribute(FileUtil.File.FileObject,Microsoft.WindowsAPICodePack.Shell.PropertySystem.PropertyKey,System.String@)">
+            <summary>
+            Retrieve an attribute property on a file
+            </summary>
+            <param name="fileObject">File to retrieve information from</param>
+            <param name="propertyKey"></param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.GetAttributeValue(FileUtil.File.FileObject,Microsoft.WindowsAPICodePack.Shell.PropertySystem.PropertyKey,Microsoft.WindowsAPICodePack.Shell.PropertySystem.PropertyDescriptionFormatOptions,System.String@)">
+            <summary>
+            Retrieve an attribute property value on a file
+            </summary>
+            <param name="fileObject">File to retrieve information from</param>
+            <param name="propertyKey"></param>
+            <param name="propertyFormat"></param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.SetAttributes(FileUtil.File.FileObject,System.IO.FileAttributes)">
+            <summary>
+            Set an attribute on a file
+            </summary>
+            <param name="fileObject">File to set information for</param>
+            <param name="fileAttributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.SetPermission(FileUtil.File.FileObject,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AccessControlType,System.String)">
+            <summary>
+            Set permissions on a file directory
+            </summary>
+            <param name="fileObject">File to set permissions for</param>
+            <param name="fileRights">The type of file rights to set access for</param>
+            <param name="accessControlType">The type of access to </param>
+            <param name="strSpecificUserName">Optional: Define a specific username to set permissions for</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.Encrypt(FileUtil.File.FileObject)">
+            <summary>
+            Encrypt a file
+            </summary>
+            <param name="fileObject">File to encrypt</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.Encrypt(FileUtil.File.FileObject,System.String,System.String)">
+            <summary>
+            Encrypt a file
+            </summary>
+            <param name="fileObject">File to encrypt</param>
+            <param name="strEncryptedFilename">Encrypted filename</param>
+            <param name="strKey">Key to use to encrypt the file</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.Decrypt(FileUtil.File.FileObject)">
+            <summary>
+            Decrypt a file
+            </summary>
+            <param name="fileObject">Encrypted filename</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.Decrypt(FileUtil.File.FileObject,System.String,System.String)">
+            <summary>
+            Decrypt a file
+            </summary>
+            <param name="fileObject">Encrypted filename</param>
+            <param name="strDecryptedFilename">Decrypted filename</param>
+            <param name="strKey">Key to use to decrypt the file</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.GetExtension(FileUtil.File.FileObject)">
+            <summary>
+            Retrieve the file extension of a file
+            </summary>
+            <param name="fileObject">Filename to retrieve extension from</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.GetNameWithExtenstion(FileUtil.File.FileObject)">
+            <summary>
+            Retrieve a filename with file extension
+            </summary>
+            <param name="fileObject">Filename to retrieve name with extension from</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectExtensions.GetNameWithOutExtenstion(FileUtil.File.FileObject)">
+            <summary>
+            Retrieve a filename without file extension
+            </summary>
+            <param name="fileObject">Filename to retrieve name without extension from</param>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.File.FileContent">
+            <summary>
+            This class contains file content information
+            </summary>
+        </member>
+        <member name="P:FileUtil.File.FileContent.File">
+            <summary>
+            The file object this content resides in
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.File.FileContent.Value">
+            <summary>
+            Value of the file content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.File.FileContent.Lines">
+            <summary>
+            The list of lines that make up the file content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.File.FileContent.MemoryStream">
+            <summary>
+            The memory stream representing the value of the file content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileContent.#ctor(FileUtil.File.FileObject)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="fileObject"></param>
+        </member>
+        <member name="M:FileUtil.File.FileContent.Load">
+            <summary>
+            Load the file's content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileContent.Save">
+            <summary>
+            Save the file's content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileContent.Refresh">
+            <summary>
+            Refresh the file's content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.File.FileObjectListExtensions">
+            <summary>
+            This class provides extensions methods for file object lists
+            </summary>
+        </member>
+        <member name="M:FileUtil.File.FileObjectListExtensions.Archive(System.Collections.Generic.List{FileUtil.File.FileObject},FileUtil.Directory.DirectoryObject,System.String,System.IO.Compression.CompressionLevel,System.IO.FileMode)">
+            <summary>
+            Archive a list of files
+            </summary>
+            <param name="fileObjectList">Files to archive</param>
+            <param name="directoryObject">Directory to create archive file in</param>
+            <param name="strArchiveName">Directory to create archive file in</param>
+            <param name="compressionLevel">File compression level</param>
+            <param name="fileMode">File mode. Default is to create a new archive file or add to an existing archive</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectListExtensions.Copy(System.Collections.Generic.List{FileUtil.File.FileObject},FileUtil.Directory.DirectoryObject,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Copy a file to a different directory
+            </summary>
+            <param name="fileObjectList">File list to be copied</param>
+            <param name="directoryObject">Directory to be copied to</param>
+            <param name="boolOverWrite">Whether or not to overwrite any existing file of the same name</param>
+            <param name="boolDeleteOriginal">Optional: Delete the original file being copied</param>
+            <param name="boolReLoadFilesFromDestinationDirectory">Optional: Flag to reload file objects information from the destination directory</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectListExtensions.Move(System.Collections.Generic.List{FileUtil.File.FileObject},FileUtil.Directory.DirectoryObject)">
+            <summary>
+            Move a file to a different directory
+            </summary>
+            <param name="fileObjectList">File list to be moved</param>
+            <param name="directoryObject">Directory to be copied to</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectListExtensions.Delete(System.Collections.Generic.List{FileUtil.File.FileObject})">
+            <summary>
+            Delete a file
+            </summary>
+            <param name="fileObjectList">File list to be deleted</param>        
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.File.FileObject">
+            <summary>
+            This class represents a file system file
+            </summary>
+        </member>
+        <member name="P:FileUtil.File.FileObject.FullName">
+            <summary>
+            The short filename relative to the parent directory including the file extension
+            </summary>
+        </member>
+        <member name="P:FileUtil.File.FileObject.Extension">
+            <summary>
+            The type of extension the file has
+            </summary>
+        </member>
+        <member name="P:FileUtil.File.FileObject.Content">
+            <summary>
+            The contents of the file
+            </summary>
+        </member>
+        <member name="P:FileUtil.File.FileObject.Exists">
+            <summary>
+            Overrides the base method and refreshes the exists property
+            </summary>
+        </member>
+        <member name="M:FileUtil.File.FileObject.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strFileName">Filename to use for this object</param>
+        </member>
+        <member name="M:FileUtil.File.FileObject.LoadProperties">
+            <summary>
+            Load the properties for this file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Refresh">
+            <summary>
+            Refresh the properties of this file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.CheckExists">
+            <summary>
+            Check to see if the file exists
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Archive(System.IO.Compression.CompressionLevel,System.IO.FileMode)">
+            <summary>
+            Archive a file
+            </summary>
+            <param name="compressionLevel">File compression level</param>
+            <param name="fileMode">File mode. Default is to create a new archive file or add to an existing archive</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Delete">
+            <summary>
+            Delete this file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Rename(System.String)">
+            <summary>
+            Rename this file
+            </summary>
+            <param name="strNewFileName">New filename</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Move(FileUtil.Directory.DirectoryObject)">
+            <summary>
+            Move a file to a different directory
+            </summary>
+            <param name="directoryObject">Directory to be copied to</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Move(FileUtil.Directory.DirectoryObject,System.String)">
+            <summary>
+            Move a file to a different directory
+            </summary>
+            <param name="directoryObject">Directory to be copied to</param>
+            <param name="strDestinationFileName">Destination filename</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Copy(FileUtil.Directory.DirectoryObject,System.Boolean,System.Boolean)">
+            <summary>
+            Copy a file to a different directory
+            </summary>
+            <param name="directoryObject">Directory to be copied to</param>
+            <param name="boolOverWrite">Whether or not to overwrite any existing file of the same name</param>
+            <param name="boolDeleteOriginal">Optional: Delete the original file being copied</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Copy(FileUtil.Directory.DirectoryObject,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Copy a file to a different directory
+            </summary>
+            <param name="directoryObject">Directory to be copied to</param>
+            <param name="strNewFileName">New filename to be copied to</param>
+            <param name="boolOverWrite">Whether or not to overwrite any existing file of the same name</param>
+            <param name="boolDeleteOriginal">Optional: Delete the original file being copied</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Create(System.String)">
+            <summary>
+            Create a new file
+            </summary>
+            <param name="strFileContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Write(System.String)">
+            <summary>
+            Write to a file.
+            </summary>
+            <param name="strFileContent">File content to be written</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.Append(System.String,FileUtil.Information.FileInformation.FileAppendLocationType)">
+            <summary>
+            Append Value To File. Either At The Beginning Or End Of The File
+            </summary>
+            <param name="strFileContent">File content to be appended</param>
+            <param name="appendLocation">The location to append content to</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.SetVisible">
+            <summary>
+            Set a file to be visible in the file system
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.SetHidden">
+            <summary>
+            Set a file to be hidden in the file system
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.SetAttributes(System.IO.FileAttributes)">
+            <summary>
+            Set an attribute on a file
+            </summary>
+            <param name="fileAttributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObject.ChangeExtension(System.String)">
+            <summary>
+            Change a file extension to a new extension
+            </summary>        
+            <param name="strExtension"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.File.FileObjectList">
+            <summary>
+            This class represents a list of FileObjects
+            </summary>
+        </member>
+        <member name="M:FileUtil.File.FileObjectList.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:FileUtil.File.FileObjectList.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Constructor instantiating a file list with a list of filenames
+            </summary>
+            <param name="listFileNames">List with a list of filenames to create FileObjects for</param>
+        </member>
+        <member name="M:FileUtil.File.FileObjectList.#ctor(System.Collections.Generic.List{FileUtil.File.FileObject})">
+            <summary>
+            Construct new file list from existing files
+            </summary>
+            <param name="fileObjectList"></param>
+        </member>
+        <member name="M:FileUtil.File.FileObjectList.ValidFiles">
+            <summary>
+            Retrieves a list of existing files from this collection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.FileObjectList.InvalidFiles">
+            <summary>
+            Retrieves a list of non-existing files from this collection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.File.IFileContent">
+            <summary>
+            FileObject interface
+            </summary>
+        </member>
+        <member name="P:FileUtil.File.IFileContent.File">
+            <summary>
+            The file object this content resides in
+            </summary>
+            <returns>File object that content resides in</returns>
+        </member>
+        <member name="P:FileUtil.File.IFileContent.MemoryStream">
+            <summary>
+            The memory stream representing the value of the file content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.File.IFileContent.Value">
+            <summary>
+            The value of the file content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FileUtil.File.IFileContent.Lines">
+            <summary>
+            The list of lines that make up the file content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.IFileContent.Load">
+            <summary>
+            Load the file's content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.IFileContent.Save">
+            <summary>
+            Save the content value back to the file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.File.IFileContent.Refresh">
+            <summary>
+            Refresh the file's content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Information.FileInformation">
+            <summary>
+            This class holds File information properties
+            </summary>
+        </member>
+        <member name="T:FileUtil.Information.FileInformation.FileWriteType">
+            <summary>
+            The type of write action to be performed
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileWriteType.Unknown">
+            <summary>
+            The file write type is unknown
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileWriteType.Create">
+            <summary>
+            Create a new file
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileWriteType.Append">
+            <summary>
+            Append an existing file
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileWriteType.Overwrite">
+            <summary>
+            Overwrite an existing file
+            </summary>
+        </member>
+        <member name="T:FileUtil.Information.FileInformation.FileOccurenceType">
+            <summary>
+            File string occurrence type
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileOccurenceType.Unknown">
+            <summary>
+            The ocurrence type is unknown
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileOccurenceType.FirstOccurence">
+            <summary>
+            The first occurrence foundd in the file
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileOccurenceType.LastOccurence">
+            <summary>
+            The last occurrence foundd in the file
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileOccurenceType.AllOccurences">
+            <summary>
+            All occurrences foundd in the file
+            </summary>
+        </member>
+        <member name="T:FileUtil.Information.FileInformation.FileSizeType">
+            <summary>
+            File size information type
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileSizeType.Unknown">
+            <summary>
+            The file size type is unknown
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileSizeType.Bytes">
+            <summary>
+            File size in Bytes
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileSizeType.KiloBytes">
+            <summary>
+            File size in KiloBytes
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileSizeType.MegaBytes">
+            <summary>
+            File size in MegaBytes
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileSizeType.GigaBytes">
+            <summary>
+            File size in GigaBytes
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileSizeType.TeraBytes">
+            <summary>
+            File size in TeraBytes
+            </summary>
+        </member>
+        <member name="T:FileUtil.Information.FileInformation.FileDatePropertyType">
+            <summary>
+            File date property information type
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileDatePropertyType.Unknown">
+            <summary>
+            The date property type is unknown
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileDatePropertyType.CreationDate">
+            <summary>
+            The date of creation
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileDatePropertyType.LastAccessedDate">
+            <summary>
+            The date last accessed
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileDatePropertyType.LastWriteDate">
+            <summary>
+            The date last written to
+            </summary>
+        </member>
+        <member name="T:FileUtil.Information.FileInformation.FileAppendLocationType">
+            <summary>
+            Location to append content to
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileAppendLocationType.Unknown">
+            <summary>
+            The append location type is unknown
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileAppendLocationType.Top">
+            <summary>
+            The top of the file
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileAppendLocationType.Bottom">
+            <summary>
+            The bottom of the file
+            </summary>
+        </member>
+        <member name="T:FileUtil.Information.FileInformation.FileErrorType">
+            <summary>
+            File error type
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.Unknown">
+            <summary>
+            Unknown error type encountered
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.ExceptionThrown">
+            <summary>
+            Exception thrown when dealing with file
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.DirectoryExistsError">
+            <summary>
+            Directory does not exist or user does not have permissions to access it
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FileExistsError">
+            <summary>
+            File does not exist or user does not have permissions to access it
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FileReadError">
+            <summary>
+            File cannot be read or user does not have permissions to read it
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FileWriteError">
+            <summary>
+            File cannot be written to or user does not have permissions to write to it
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FileCopyError">
+            <summary>
+            File cannot be copied or user does not have permissions to access it
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FileDeleteError">
+            <summary>
+            File cannot be deleted or user does not have permissions to delete it
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FileCreateError">
+            <summary>
+            File cannot be created or user does not have permissions to create it
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FilePathError">
+            <summary>
+            An error was encountered because of the filepath
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FileExtensionError">
+            <summary>
+            An error was encountered because of the file extension
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FileSearchError">
+            <summary>
+            An error was encountered searching for files
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FileMoveError">
+            <summary>
+            An error was encountered moving the file
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileErrorType.FileRenameError">
+            <summary>
+            An error was encountered renaming the file
+            </summary>
+        </member>
+        <member name="T:FileUtil.Information.FileInformation.FileSearchType">
+            <summary>
+            Type of date search to be performed
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileSearchType.Unknown">
+            <summary>
+            The type of date to search is unknown
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileSearchType.GreaterThan">
+            <summary>
+            The date must be greater than the provided date
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileSearchType.LessThan">
+            <summary>
+            The date must be less than the provided date
+            </summary>
+        </member>
+        <member name="F:FileUtil.Information.FileInformation.FileSearchType.Between">
+            <summary>
+            The date must be between the provided dates
+            </summary>
+        </member>
+        <member name="T:FileUtil.Monitor.FileWatcherObject">
+            <summary>
+            FileWatcher class for monitoring filesystem events
+            </summary>
+        </member>
+        <member name="P:FileUtil.Monitor.FileWatcherObject.FileDirectory">
+            <summary>
+            File directory to monitor
+            </summary>
+        </member>
+        <member name="P:FileUtil.Monitor.FileWatcherObject.FileWatcher">
+            <summary>
+            File watcher object
+            </summary>
+        </member>
+        <member name="P:FileUtil.Monitor.FileWatcherObject.FileCopyDirectory">
+            <summary>
+            File copy directory
+            </summary>
+        </member>
+        <member name="T:FileUtil.Monitor.FileWatcherObject.FileEventMethod">
+            <summary>
+            File event delegate
+            </summary>
+            <param name="obj"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:FileUtil.Monitor.FileWatcherObject.FileRenamedEventMethod">
+            <summary>
+            File renamed delegate
+            </summary>
+            <param name="obj"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:FileUtil.Monitor.FileWatcherObject.FileErrorEventMethod">
+            <summary>
+            File error event delegate
+            </summary>
+            <param name="obj"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strDirectory">Directory to monitor</param>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.BeginWatchFiles(System.Boolean,System.String@)">
+            <summary>
+            Start monitoring the file directory for events
+            </summary>
+            <param name="boolIncludeSubDirectories">Option to monitor sub-directories</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.SubscribeToFileChangedEvent(System.IO.WatcherChangeTypes,FileUtil.Monitor.FileWatcherObject.FileEventMethod)">
+            <summary>
+            Subscribe to file changed event
+            </summary>
+            <param name="type">Watcher change type to monitor</param>
+            <param name="method">Callback method to be invoked on event execution</param>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.SubscribeToFileCreatedEvent(System.IO.WatcherChangeTypes,FileUtil.Monitor.FileWatcherObject.FileEventMethod)">
+            <summary>
+            Subscribe to file changed event
+            </summary>
+            <param name="type">Watcher change type to monitor</param>
+            <param name="method">Callback method to be invoked on event execution</param>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.SubscribeToFileDeletedEvent(System.IO.WatcherChangeTypes,FileUtil.Monitor.FileWatcherObject.FileEventMethod)">
+            <summary>
+            Subscribe to file deleted event
+            </summary>
+            <param name="type">Watcher change type to monitor</param>
+            <param name="method">Callback method to be invoked on event execution</param>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.SubscribeToFileRenamedEvent(System.IO.WatcherChangeTypes,FileUtil.Monitor.FileWatcherObject.FileRenamedEventMethod)">
+            <summary>
+            Subscribe to file renamed event
+            </summary>
+            <param name="type">Watcher change type to monitor</param>
+            <param name="method">Callback method to be invoked on event execution</param>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.SubscribeToFileErrorEvent(System.IO.WatcherChangeTypes,FileUtil.Monitor.FileWatcherObject.FileErrorEventMethod)">
+            <summary>
+            Subscribe to file error event
+            </summary>
+            <param name="type">Watcher change type to monitor</param>
+            <param name="method">Callback method to be invoked on event execution</param>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.AddCopyFileTriggerOnFileCreatedOrChanged(System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strOutputDirectory"></param>
+            <param name="strError"></param>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.CopyFile(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            Copy file to destination directory
+            </summary>
+            <param name="obj"></param>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.GetFileSystemNotificationMessageFormatted(System.IO.FileSystemEventArgs)">
+            <summary>
+            Get file system event notification message formatted
+            </summary>
+            <param name="e">Event arguments</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.GetFileSystemNotificationMessageFormatted(System.IO.RenamedEventArgs)">
+            <summary>
+            Get file system renamed event notification message formatted
+            </summary>
+            <param name="e">Renamed event arguments</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Monitor.FileWatcherObject.GetFileSystemNotificationMessageFormatted(System.IO.ErrorEventArgs)">
+            <summary>
+            Get file system error event notification message formatted
+            </summary>
+            <param name="e">Error event arguments</param>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Processes.ProcessFunctions">
+            <summary>
+            This class provides methods for dealing with system processes
+            </summary>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.ExecuteFileWaitForExit(FileUtil.Processes.ProcessInformation,System.String@,System.Int32,System.Int32)">
+            <summary>
+            Execute a file, wait for the file execution to cease, and return its exit code
+            </summary>
+            <param name="processInformation">Process information object</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="intTimeoutSeconds">Number of seconds to wait before timing out</param>
+            <param name="intDefaultFailure">Default return code</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetProcess(System.String,System.String@)">
+            <summary>
+            Retrieve a running process
+            </summary>
+            <param name="strProcessName"></param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetProcessesByMachineName(System.String,System.String@)">
+            <summary>
+            Retrieve a list of running processes by machine name
+            </summary>
+            <param name="strMachineName">Machine name to retrieve processes for</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetRemoteProcesses(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Retrieve a list of running processes on a remote machine
+            </summary>
+            <param name="strMachineName">Machine name to query</param>
+            <param name="strDomainName">Machine domain name</param>
+            <param name="strUserName">Username</param>
+            <param name="strPassword">User password</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.TerminateRemoteProcess(System.String,System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Terminate a process
+            </summary>
+            <param name="strProgramName">Program name</param>
+            <param name="strMachineName">Machine name</param>
+            <param name="strDomainName">Domain name</param>
+            <param name="strUserName">Username</param>
+            <param name="strPassword">User password</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetProcessesLockingFile(System.String)">
+            <summary>
+            Get a list of processes locking files in a specified directory
+            </summary>
+            <param name="filePath">Directory to check for locked files</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetFilesLockedByProcess(System.Diagnostics.Process)">
+            <summary>
+            Get files locked by a specific process
+            </summary>
+            <param name="process">Process to examine</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetFilesLockedByCurrentProcess">
+            <summary>
+            Get files locked by the current running process
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetProcessArguments(System.String,System.String@)">
+            <summary>
+            Get arguments passed to a running process
+            </summary>
+            <param name="strProcessName">Process name</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetProcessExitCode(System.String,System.Int32,System.String@)">
+            <summary>
+            Retrieve the exit code from a running process
+            </summary>
+            <param name="strProcessName">Process name</param>
+            <param name="intTimeoutSeconds">Number of seconds to wait before timing out</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetProcessConsoleOutput(System.String,System.String@)">
+            <summary>
+            Retrieve console output from a running process
+            </summary>
+            <param name="strProcessName">Process name</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetProcessConsoleError(System.String,System.String@)">
+            <summary>
+            Retrieve console error output from a running process
+            </summary>
+            <param name="strProcessName">Process name</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetProcessStartTime(System.String,System.String@)">
+            <summary>
+            Retrieve the start time for a running process
+            </summary>
+            <param name="strProcessName">Process name</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.KillProcess(System.String,System.String@)">
+            <summary>
+            Kill a running process
+            </summary>
+            <param name="strProcessName">Process name</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.SetProcessPriority(System.String,System.Diagnostics.ProcessPriorityClass,System.String@)">
+            <summary>
+            Set the priority of a specified process
+            </summary>
+            <param name="strProcessName">Process name</param>
+            <param name="priority">Priority</param>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessFunctions.GetMachineNames(System.String@)">
+            <summary>
+            Retrieve a list of machine names
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Processes.ProcessInformation">
+            <summary>
+            This class contains information for executing a file process
+            </summary>
+        </member>
+        <member name="F:FileUtil.Processes.ProcessInformation.FileName">
+            <summary>
+            Process filename
+            </summary>
+        </member>
+        <member name="F:FileUtil.Processes.ProcessInformation.Arguments">
+            <summary>
+            Arguments to pass to the application
+            </summary>
+        </member>
+        <member name="F:FileUtil.Processes.ProcessInformation.Username">
+            <summary>
+            Username to run the process under
+            </summary>
+        </member>
+        <member name="F:FileUtil.Processes.ProcessInformation.Password">
+            <summary>
+            User password
+            </summary>
+        </member>
+        <member name="F:FileUtil.Processes.ProcessInformation.EnvironmentVariables">
+            <summary>
+            List of environment variables
+            </summary>
+        </member>
+        <member name="F:FileUtil.Processes.ProcessInformation.WindowStyle">
+            <summary>
+            The style of the console window when executing
+            </summary>
+        </member>
+        <member name="P:FileUtil.Processes.ProcessInformation.UseShellExecute">
+            <summary>
+            Flag to use shell execute
+            </summary>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessInformation.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessInformation.#ctor(System.String)">
+            <summary>
+            Default constructor 
+            </summary>
+            <param name="strFileName"></param>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessInformation.#ctor(System.String,System.Collections.Specialized.StringDictionary)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strFileName"></param>
+            <param name="listEnvironmentVariables"></param>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessInformation.#ctor(System.String,System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strFileName"></param>
+            <param name="strArguments"></param>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessInformation.#ctor(System.String,System.String,System.Collections.Specialized.StringDictionary)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strFileName"></param>
+            <param name="strArguments"></param>
+            <param name="listEnvironmentVariables"></param>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessInformation.#ctor(System.String,System.String,System.Security.SecureString)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strFileName"></param>
+            <param name="strUsername"></param>
+            <param name="strPassword"></param>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessWin32Information.NtQueryObject(System.IntPtr,System.Int32,System.IntPtr,System.Int32,System.Int32@)">
+            <summary>
+            Native Win32 method
+            </summary>
+            <param name="ObjectHandle"></param>
+            <param name="ObjectInformationClass"></param>
+            <param name="ObjectInformation"></param>
+            <param name="ObjectInformationLength"></param>
+            <param name="returnLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessWin32Information.QueryDosDevice(System.String,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            Native Win32 method
+            </summary>
+            <param name="lpDeviceName"></param>
+            <param name="lpTargetPath"></param>
+            <param name="ucchMax"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessWin32Information.NtQuerySystemInformation(System.Int32,System.IntPtr,System.Int32,System.Int32@)">
+            <summary>
+            Native Win32 method
+            </summary>
+            <param name="SystemInformationClass"></param>
+            <param name="SystemInformation"></param>
+            <param name="SystemInformationLength"></param>
+            <param name="returnLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessWin32Information.OpenProcess(FileUtil.Processes.ProcessWin32Information.ProcessAccessFlags,System.Boolean,System.Int32)">
+            <summary>
+            Native Win32 method
+            </summary>
+            <param name="dwDesiredAccess"></param>
+            <param name="bInheritHandle"></param>
+            <param name="dwProcessId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessWin32Information.CloseHandle(System.IntPtr)">
+            <summary>
+            Native Win32 method
+            </summary>
+            <param name="hObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessWin32Information.DuplicateHandle(System.IntPtr,System.UInt16,System.IntPtr,System.IntPtr@,System.UInt32,System.Boolean,System.UInt32)">
+            <summary>
+            Native Win32 method
+            </summary>
+            <param name="hSourceProcessHandle"></param>
+            <param name="hSourceHandle"></param>
+            <param name="hTargetProcessHandle"></param>
+            <param name="lpTargetHandle"></param>
+            <param name="dwDesiredAccess"></param>
+            <param name="bInheritHandle"></param>
+            <param name="dwOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Processes.ProcessWin32Information.GetCurrentProcess">
+            <summary>
+            Native Win32 method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FileUtil.Subversion.SubversionConnection">
+            <summary>
+            Subversion client
+            </summary>
+        </member>
+        <member name="P:FileUtil.Subversion.SubversionConnection.Credential">
+            <summary>
+            Network credential for connecting to Subversion
+            </summary>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionConnection.#ctor(System.String,System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="strUsername">Username</param>
+            <param name="strPassword">User password</param>
+        </member>
+        <member name="T:FileUtil.Subversion.SubversionClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FileUtil.Subversion.SubversionClient.Connection">
+            <summary>
+            Subversion connection
+            </summary>
+        </member>
+        <member name="T:FileUtil.Subversion.SubversionClient.TargetInformationType">
+            <summary>
+            Target information type
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.ChangeList">
+            <summary>
+            ChangeList
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.Checksum">
+            <summary>
+            Checksum
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.Conflicts">
+            <summary>
+            Conflicts
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.ContentTime">
+            <summary>
+            ContentTime
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.Depth">
+            <summary>
+            Depth
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.FullPath">
+            <summary>
+            FullPath
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.LastChangeAuthor">
+            <summary>
+            LastChangeAuthor
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.LastChangeRevision">
+            <summary>
+            LastChangeRevision
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.LastChangeTime">
+            <summary>
+            LastChangeTime
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.Uri">
+            <summary>
+            Uri
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.MovedFrom">
+            <summary>
+            MovedFrom
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.MovedTo">
+            <summary>
+            MovedTo
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.NodeKind">
+            <summary>
+            NodeKind
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.Path">
+            <summary>
+            Path
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.RepositoryId">
+            <summary>
+            RepositoryId
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.RepositoryRoot">
+            <summary>
+            RepositoryRoot
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.RepositorySize">
+            <summary>
+            RepositorySize
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.Revision">
+            <summary>
+            Revision
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.Schedule">
+            <summary>
+            Schedule
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.TreeConflict">
+            <summary>
+            TreeConflict
+            </summary>
+        </member>
+        <member name="F:FileUtil.Subversion.SubversionClient.TargetInformationType.WorkingCopySize">
+            <summary>
+            WorkingCopySize
+            </summary>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.#ctor(FileUtil.Subversion.SubversionConnection)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="connection">Subversion client to use</param>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.DownloadFile(System.String,System.String,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strFileName"></param>
+            <param name="strOutputFileDirectory"></param>
+            <param name="strOutputName"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CreateDirectory(System.String,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strSvnDirectoryUrl"></param>
+            <param name="strNewFolderName"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CreateTag(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strSvnBranchDirectoryUrl"></param>
+            <param name="strSvnTagDirectoryUrl"></param>
+            <param name="strNewTagFolderName"></param>
+            <param name="strWorkingDirectory"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.GetPaths(System.String,System.Boolean,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strSvnDirectoryUrl"></param>
+            <param name="boolRecurse"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.GetPaths(System.String,System.String,System.Boolean,System.Boolean,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strSvnDirectoryUrl"></param>
+            <param name="strFind"></param>
+            <param name="boolMatchCase"></param>
+            <param name="boolRecurse"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.GetTargetInformation(System.String,FileUtil.Subversion.SubversionClient.TargetInformationType,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strFileName"></param>
+            <param name="infomationType"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.GetTargetInformation(System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strFileName"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.GetFileContent(System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strFileName"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.GetUrlEncoded(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CheckoutProject(System.String,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strSvnDirectoryUrl"></param>
+            <param name="strOutputDirectory"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CheckoutProject(System.String,System.Int64,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strSvnDirectoryUrl"></param>
+            <param name="intRevisionNumber"></param>
+            <param name="strOutputDirectory"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CheckoutProject(System.String,System.DateTime,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strSvnDirectoryUrl"></param>
+            <param name="dtRevisionDate"></param>
+            <param name="strOutputDirectory"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CheckoutProject(SharpSvn.SvnUriTarget,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="svnDirectoryUri"></param>
+            <param name="strOutputDirectory"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CheckoutProject(SharpSvn.SvnUriTarget,System.Int64,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="svnDirectoryUri"></param>
+            <param name="intRevisionNumber"></param>
+            <param name="strOutputDirectory"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CheckoutProject(SharpSvn.SvnUriTarget,System.DateTime,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="svnDirectoryUri"></param>
+            <param name="dtRevisionDate"></param>
+            <param name="strOutputDirectory"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CommitDirectory(System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strSvnBranchDirectoryUrl"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CommitDirectory(System.String,System.String@,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="strSvnBranchDirectoryUrl"></param>
+            <param name="strError"></param>
+            <param name="boolIgnore"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CopyDirectory(System.String,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strSvnBranchDirectoryUrl"></param>
+            <param name="strSvnTagDirectoryUrl"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.CheckFileDifference(System.String,System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strFileFrom"></param>
+            <param name="strFileTo"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FileUtil.Subversion.SubversionClient.GetMostRecentCheckedInFilePath(System.Collections.Generic.List{System.String},System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="listFileNames"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.IniFileFunctions">
+            <summary>
+            This class provides ini file helper methods
+            </summary>
+        </member>
+        <member name="M:CoreUtil.IniFileFunctions.ReadIniValue(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Read an INI file value
+            </summary>
+            <param name="section"></param>
+            <param name="keyName"></param>
+            <param name="defaultValue"></param>
+            <param name="fileName"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.IniFileFunctions.ReadIniValue(System.String,System.String,System.String)">
+            <summary>
+            Read an INI file value
+            </summary>
+            <param name="filename"></param>
+            <param name="section"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.IniFileFunctions.GetIniParam(System.String,System.String,System.String)">
+            <summary>
+            Get an INI file parameter
+            </summary>
+            <param name="pstrSection"></param>
+            <param name="pstrEntry"></param>
+            <param name="pstrIniFile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.RegexConstants">
+            <summary>
+            This class has defined regular expressions for common searches
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.ALPHA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.ALPHA_NUMERIC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.ALPHA_NUMERIC_SPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.EMAIL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.GUID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.UPPER_CASE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.LOWER_CASE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.NUMERIC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.SOCIAL_SECURITY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.URL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.US_CURRENCY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.US_TELEPHONE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.US_ZIPCODE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.US_ZIPCODE_PLUS_FOUR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:CoreUtil.RegexConstants.US_ZIPCODE_PLUS_FOUR_OPTIONAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Extensions.DataColumnExtensions">
+            <summary>
+            This class provides extension methods for data columns
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataColumnExtensions.ToList(System.Data.DataColumnCollection)">
+            <summary>
+            Retrieve datatable columns as an enumerable list
+            </summary>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Extensions.DataRowExtensions">
+            <summary>
+            This class provides extension methods for data rows
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataRowExtensions.ToList(System.Data.DataRowCollection)">
+            <summary>
+            Get data row list
+            </summary>
+            <param name="rows"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataRowExtensions.ToStringList(System.Data.DataRow,System.String)">
+            <summary>
+            Get datarow as a list of strings
+            </summary>
+            <param name="dr"></param>
+            <param name="strNullValueReplacement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataRowExtensions.IsMutable(System.Data.DataRow)">
+            <summary>
+            Whether or not the datarow is mutable
+            </summary>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Extensions.DataTableExtensions">
+            <summary>
+            This class provides extension methods for data tables
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataTableExtensions.FragmentToRowList(System.Data.DataTable,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Fragment table to a list of rows based on a specific list of column names
+            </summary>
+            <param name="dt">Datatable to fragment</param>
+            <param name="listColumnNamesConformTo">Column names to fragment with</param>
+            <param name="boolDistinct">Whether or not the row list returned should be distinct</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataTableExtensions.FragmentToTable(System.Data.DataTable,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Fragment a datatable from a list of column names
+            </summary>
+            <param name="dt">Datatable to fragment</param>
+            <param name="listColumnNamesConformTo">Column names to fragment with</param>
+            <param name="boolDisctinct">Whether or not the row list returned should be distinct</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataTableExtensions.Rows(System.Data.DataTable)">
+            <summary>
+            Get datatable rows as an enumerable list
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DataTableExtensions.IsMutable(System.Data.DataTable,System.Boolean)">
+            <summary>
+            Check whether or not a datatable is mutable
+            </summary>
+            <param name="dt">Datatable to check</param>
+            <param name="boolEnsureNotReadOnly">Ensure table is not readonly</param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Extensions.FormatInformation">
+            <summary>
+            This class provides file formatting information
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Extensions.FormatInformation.FormatType">
+            <summary>
+            Format type enumeration
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.Unknown">
+            <summary>
+            The format type is unknown
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.General">
+            <summary>
+            General format type
+            </summary>            
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.FixedPoint">
+            <summary>
+            Fixed point format type
+            </summary>                      
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.FixedPointGroup">
+            <summary>
+            fixed point group format type
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.PadLeadingZeroes">
+            <summary>
+            Padded leading zeroes format type
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.Currency">
+            <summary>
+            Currency format type
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.Percent">
+            <summary>
+            Percentage format type
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Extensions.FormatInformation.FormatType.Hexadecimal">
+            <summary>
+            Hexadecimal format type
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Extensions.DateExtensions">
+            <summary>
+            This class provides extension methods for datetime
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.IsWeekend(System.DateTime)">
+            <summary>
+            Determine whether or not the date is a weekend day
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.IsLeapDay(System.DateTime)">
+            <summary>
+            Whether or not the day is a leap day
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.FirstDayOfMonth(System.DateTime)">
+            <summary>
+            Whether or not the date is the dfirst day of the month
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.LastDayOfMonth(System.DateTime)">
+            <summary>
+            Check date is the last day of the month
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.ToReversedDateTime(System.DateTime)">
+            <summary>
+            Get reversed datetime
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.DateExtensions.ToSqlDateTime(System.DateTime)">
+            <summary>
+            Convert date to a sql formatted datetime
+            </summary>
+            <param name="date">Date to check</param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Extensions.IntegerExtensions">
+            <summary>
+            This class provides extension methods for integers
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.IntegerExtensions.IsEven(System.Int32)">
+            <summary>
+            Determine if an integer is an even number
+            </summary>
+            <param name="intValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.IntegerExtensions.IsOdd(System.Int32)">
+            <summary>
+            Determine if an integer is an odd number
+            </summary>
+            <param name="intValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.IntegerExtensions.ToFormatType(System.Int32,CoreUtil.Extensions.FormatInformation.FormatType,System.Int32)">
+            <summary>
+            Format value as string with a provided format type
+            </summary>
+            <param name="intValue"></param>
+            <param name="formatType"></param>
+            <param name="intDigits"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Extensions.StringExtensions">
+            <summary>
+            This class provides extension methods for string values
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsBoolean(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsDate(System.String)">
+            <summary>
+            Check to see if a string can be cast to a date
+            </summary>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsNumeric(System.String,System.Boolean)">
+            <summary>
+            Check string is numeric
+            </summary>
+            <param name="strValue"></param>
+            <param name="boolTrimString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsLetterOrDigit(System.String)">
+            <summary>
+            Check string is a letter or digit
+            </summary>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsEmail(System.String)">
+            <summary>
+            Check string is a valid email address
+            </summary>
+            <param name="strEmailAddress"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsGuid(System.String)">
+            <summary>
+            Check to see if a string is a GUID formatted string
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsSocialSecurityNumber(System.String)">
+            <summary>
+            Check string is a social security number
+            </summary>
+            <param name="strSocialSecurityNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsUSZipCode(System.String)">
+            <summary>
+            Check string is a valid US zipcode
+            </summary>
+            <param name="strZipCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.IsUSZipCodePlusFour(System.String)">
+            <summary>
+            Check string is a valid US zipcode + 4 numbers
+            </summary>
+            <param name="strZipCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.Contains(System.String,System.String,System.Boolean)">
+            <summary>
+            Check string contains substring
+            </summary>
+            <param name="strContent"></param>
+            <param name="strFind"></param>
+            <param name="boolMatchCase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.ContainsAny(System.String,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.ContainsAll(System.String,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.ContainsNumbers(System.String)">
+            <summary>
+            Check string contains numbers
+            </summary>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.Split(System.String,System.Char,System.Boolean)">
+            <summary>
+            Split string
+            </summary>
+            <param name="strValue"></param>
+            <param name="charDelimiter"></param>
+            <param name="boolTrimValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.ToFormatType(System.String,CoreUtil.Extensions.FormatInformation.FormatType,System.Int32)">
+            <summary>
+            Format string to type
+            </summary>
+            <param name="strValue"></param>
+            <param name="formatType"></param>
+            <param name="intDigits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.Truncate(System.String,System.Int32)">
+            <summary>
+            Truncates the string to a specified length and replace the truncated to a ...
+            </summary>
+            <param name="text">string that will be truncated</param>
+            <param name="maxLength">total length of characters to maintain before the truncate happens</param>
+            <returns>truncated string</returns>
+        </member>
+        <member name="M:CoreUtil.Extensions.StringExtensions.Repeat(System.String,System.Int32)">
+            <summary>
+            Repeat a string N times
+            </summary>
+            <param name="input"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreUtil.Globals">
+            <summary>
+            Global information class
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentType">
+            <summary>
+            Environment to be deployed to
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Globals.ResultType">
+            <summary>
+            A generic result type on a processing expression, transaction, or method
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.ResultType.Unknown">
+            <summary>
+            Result type is unknown
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.ResultType.Success">
+            <summary>
+            Represents a successful expression return flag
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.ResultType.Failure">
+            <summary>
+            Represents a failed expression return flag
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Globals.EnvironmentTypes">
+            <summary>
+            The type of environment to be deployed to 
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.Unknown">
+            <summary>
+            The environment type is unknown
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.DEV">
+            <summary>
+            The development environment
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.DEV1">
+            <summary>
+            Represents the development environment
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.QUAL">
+            <summary>
+            Represents the quality environment
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.QUAL1">
+            <summary>
+            Represents the quality 1 environment
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.UAT">
+            <summary>
+            Represents the user acceptance testing environment
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Globals.EnvironmentTypes.PROD">
+            <summary>
+            Represents the production environment
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Information.Information">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.MachineName">
+            <summary>
+            The name of the machine executing the current assembly
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.UserName">
+            <summary>
+            The name of th user executing the current assembly
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.OSVersion">
+            <summary>
+            The operating system version
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.NETFrameworkVersion">
+            <summary>
+            The current .NET framework version on the machine executing the current assembly
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.ProgramName">
+            <summary>
+            The name of the program executing the current assembly
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.ProgramVersion">
+            <summary>
+            The version of the program executing the current assembly
+            </summary>
+        </member>
+        <member name="P:CoreUtil.Information.Information.ProgramDirectory">
+            <summary>
+            The base directory of the currently executing program
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Log">
+            <summary>
+            Global Logging Class
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.Level">
+            <summary>
+            Level of logging to be logged
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Log.LogLevelType">
+            <summary>
+            The log level type to be used in determining how much detailed information is logged
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogLevelType.Unknown">
+            <summary>
+            The log level is unknown
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogLevelType.Low">
+            <summary>
+            There is a low level of logging
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogLevelType.Medium">
+            <summary>
+            There is a medium level of logging
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogLevelType.High">
+            <summary>
+            There is a high level of logging
+            </summary>
+        </member>
+        <member name="T:CoreUtil.Log.LogType">
+            <summary>
+            Message logging type
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogType.Unknown">
+            <summary>
+            The logging type is unknown
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogType.Console">
+            <summary>
+            Messages are logged to the output console
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogType.LogFile">
+            <summary>
+            Messages are logged to a log file
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogType.Database">
+            <summary>
+            Messages are logged to a database table
+            </summary>
+        </member>
+        <member name="F:CoreUtil.Log.LogType.All">
+            <summary>
+            Messages are logged to the output console, a log file, and a database table
+            </summary>
+        </member>
+        <member name="M:CoreUtil.Log.GetLoggerFileName">
+            <summary>
+            Retrieve log4net filename
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CoreUtil.Log.Debug(System.String,System.Exception)">
+            <summary>
+            Log a debug message
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="ex">Optional: Exception thrown to log</param>
+        </member>
+        <member name="M:CoreUtil.Log.Info(System.String,System.Exception)">
+            <summary>
+            Log an information message
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="ex">Optional: Exception thrown to log</param>
+        </member>
+        <member name="M:CoreUtil.Log.Warning(System.String,System.Exception)">
+            <summary>
+            Log a warning message
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="ex">Optional: Exception thrown to log</param>
+        </member>
+        <member name="M:CoreUtil.Log.Error(System.String,System.Exception)">
+            <summary>
+            Log an error message
+            </summary>
+            <param name="strError">Error string containing any Error message encountered</param>
+            <param name="ex">Optional: Exception thrown to log</param>
+        </member>
+    </members>
+</doc>

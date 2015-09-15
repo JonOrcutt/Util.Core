@@ -1,0 +1,12 @@
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\NET_Debug\FileUtil.dll
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\NET_Debug\FileUtil.pdb
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\NET_Debug\FileUtil.XML
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\NET_Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\NET_Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\NET_Debug\SharpSvn.dll
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\NET_Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\NET_Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\Jon\Desktop\Util.Core\FileUtil\bin\NET_Debug\SharpPlink-Win32.svnExe
+C:\Users\Jon\Desktop\Util.Core\FileUtil\obj\NET_Debug\FileUtil.dll
+C:\Users\Jon\Desktop\Util.Core\FileUtil\obj\NET_Debug\FileUtil.pdb
+C:\Users\Jon\Desktop\Util.Core\FileUtil\obj\NET_Debug\FileUtil.csprojResolveAssemblyReference.cache
